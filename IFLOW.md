@@ -18,7 +18,7 @@
 
 ### 核心设计
 
-阅读 [`design.md`](design.md)
+阅读基础设计 [`design.md`](design.md)，阅读核心概念 `core-concepts/*`
 
 ### 构建工具
 

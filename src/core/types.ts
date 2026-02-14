@@ -41,6 +41,7 @@ export type Theme = {
   boxShadow: Record<string, string>;
   transition: Record<string, string>;
   aspectRatio: Record<string, string>;
+  container: Record<string, string>;
   animation: Record<string, string>;
   keyframes: Record<string, Record<string, Record<string, string>>>;
 };

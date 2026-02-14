@@ -22,3 +22,4 @@ export {
 
 // Export layout styles
 export * from "./styles/layout/aspect-ratio";
+export * from "./styles/layout/columns";

@@ -24,7 +24,7 @@ const styles = merge(p_4, text_center, sm(text_left));
 ### 断点变体
 
 ```typescript
-import { sm, md, lg, xl, xxl } from "jstw";
+import { sm, md, lg, xl, xl2 } from "jstw";
 import { p_4, p_8, p_12, w_full, w_1_2, w_1_3 } from "jstw";
 
 const styles = merge(p_4, sm(p_8), md(p_12), lg(w_1_2), xl(w_1_3));
@@ -38,7 +38,7 @@ const styles = merge(p_4, sm(p_8), md(p_12), lg(w_1_2), xl(w_1_3));
 | `md`  | 768px    | `@media (min-width: 768px)`  |
 | `lg`  | 1024px   | `@media (min-width: 1024px)` |
 | `xl`  | 1280px   | `@media (min-width: 1280px)` |
-| `xxl` | 1536px   | `@media (min-width: 1536px)` |
+| `xl2` | 1536px   | `@media (min-width: 1536px)` |
 
 ## 容器查询
 
@@ -161,14 +161,14 @@ const textStyles = merge(text_center, sm(text_left));
 ```typescript
 // 在配置中定义自定义断点
 const breakpoints = {
-  "3xl": "120rem",
+  xl3: "120rem",
 };
 
 // 使用自定义断点
-import { at_3xl } from "jstw";
+import { at_xl3 } from "jstw";
 import { p_4 } from "jstw";
 
-const styles = at_3xl(p_4);
+const styles = at_xl3(p_4);
 ```
 
 ## 设计模式
@@ -217,7 +217,7 @@ function sm(style: StyleFn): VariantStyleFn;
 function md(style: StyleFn): VariantStyleFn;
 function lg(style: StyleFn): VariantStyleFn;
 function xl(style: StyleFn): VariantStyleFn;
-function xxl(style: StyleFn): VariantStyleFn;
+function xl2(style: StyleFn): VariantStyleFn;
 
 // 容器查询变体
 function at_container(containerName?: string): string;

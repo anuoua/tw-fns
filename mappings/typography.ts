@@ -9,14 +9,14 @@ export const fontSizeMap: Record<string, { size: string; lineHeight: string }> =
   'base': { size: '1rem', lineHeight: '1.5rem' },
   'lg': { size: '1.125rem', lineHeight: '1.75rem' },
   'xl': { size: '1.25rem', lineHeight: '1.75rem' },
-  '2xl': { size: '1.5rem', lineHeight: '2rem' },
-  '3xl': { size: '1.875rem', lineHeight: '2.25rem' },
-  '4xl': { size: '2.25rem', lineHeight: '2.5rem' },
-  '5xl': { size: '3rem', lineHeight: '1' },
-  '6xl': { size: '3.75rem', lineHeight: '1' },
-  '7xl': { size: '4.5rem', lineHeight: '1' },
-  '8xl': { size: '6rem', lineHeight: '1' },
-  '9xl': { size: '8rem', lineHeight: '1' },
+  'xl2': { size: '1.5rem', lineHeight: '2rem' },
+  'xl3': { size: '1.875rem', lineHeight: '2.25rem' },
+  'xl4': { size: '2.25rem', lineHeight: '2.5rem' },
+  'xl5': { size: '3rem', lineHeight: '1' },
+  'xl6': { size: '3.75rem', lineHeight: '1' },
+  'xl7': { size: '4.5rem', lineHeight: '1' },
+  'xl8': { size: '6rem', lineHeight: '1' },
+  'xl9': { size: '8rem', lineHeight: '1' },
 } as const
 
 /**

@@ -82,8 +82,8 @@ export const theme = {
     md: "0.375rem",
     lg: "0.5rem",
     xl: "0.75rem",
-    "2xl": "1rem",
-    "3xl": "1.5rem",
+    xl2: "1rem",
+    xl3: "1.5rem",
     full: "9999px",
   },
 
@@ -94,7 +94,7 @@ export const theme = {
     md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
     lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
     xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-    "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    xl2: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
     inner: "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
     none: "none",
   },
@@ -382,7 +382,7 @@ sm: "640px",
 md: "768px",
 lg: "1024px",
 xl: "1280px",
-xxl: "1536px",
+xl2: "1536px",
 },
 
 // 圆角
@@ -393,8 +393,8 @@ DEFAULT: "0.25rem",
 md: "0.375rem",
 lg: "0.5rem",
 xl: "0.75rem",
-"2xl": "1rem",
-"3xl": "1.5rem",
+xl2: "1rem",
+xl3: "1.5rem",
 full: "9999px",
 },
 
@@ -405,7 +405,7 @@ DEFAULT: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
 md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
 lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
 xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-"2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+xl2: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
 inner: "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
 none: "none",
 },
@@ -556,12 +556,12 @@ export const theme = {
   ...defaultTheme,
   breakpoints: {
     ...defaultTheme.breakpoints,
-    "3xl": "120rem",
+    "xl3": "120rem",
   },
 };
 
 // 使用新断点
-export const at_3xl = createResponsiveVariant(theme.breakpoints["3xl"]);
+export const at_xl3 = createResponsiveVariant(theme.breakpoints["xl3"]);
 ```
 
 ### 添加新动画

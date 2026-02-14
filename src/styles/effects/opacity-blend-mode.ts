@@ -11,10 +11,7 @@ export const shadow = createStyle("boxShadow", defaultTheme.boxShadow.DEFAULT);
 export const shadow_md = createStyle("boxShadow", defaultTheme.boxShadow.md);
 export const shadow_lg = createStyle("boxShadow", defaultTheme.boxShadow.lg);
 export const shadow_xl = createStyle("boxShadow", defaultTheme.boxShadow.xl);
-export const shadow_2xl = createStyle(
-  "boxShadow",
-  defaultTheme.boxShadow["2xl"],
-);
+export const shadow_xl2 = createStyle("boxShadow", defaultTheme.boxShadow.xl2);
 export const shadow_inner = createStyle(
   "boxShadow",
   defaultTheme.boxShadow.inner,

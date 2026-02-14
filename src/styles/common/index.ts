@@ -33,9 +33,9 @@ export const text_sm = createStyle("font-size", "0.875rem");
 export const text_base = createStyle("font-size", "1rem");
 export const text_lg = createStyle("font-size", "1.125rem");
 export const text_xl = createStyle("font-size", "1.25rem");
-export const text_2xl = createStyle("font-size", "1.5rem");
-export const text_3xl = createStyle("font-size", "1.875rem");
-export const text_4xl = createStyle("font-size", "2.25rem");
+export const text_xl2 = createStyle("font-size", "1.5rem");
+export const text_xl3 = createStyle("font-size", "1.875rem");
+export const text_xl4 = createStyle("font-size", "2.25rem");
 
 export const font_normal = createStyle("font-weight", "400");
 export const font_medium = createStyle("font-weight", "500");
@@ -78,9 +78,9 @@ export const rounded_xl = createStyle(
   "border-radius",
   defaultTheme.borderRadius.xl,
 );
-export const rounded_2xl = createStyle(
+export const rounded_xl2 = createStyle(
   "border-radius",
-  defaultTheme.borderRadius["2xl"],
+  defaultTheme.borderRadius["xl2"],
 );
 export const rounded_full = createStyle(
   "border-radius",
@@ -159,7 +159,7 @@ export const max_w_sm = createStyle("max-width", "24rem");
 export const max_w_md = createStyle("max-width", "28rem");
 export const max_w_lg = createStyle("max-width", "32rem");
 export const max_w_xl = createStyle("max-width", "36rem");
-export const max_w_2xl = createStyle("max-width", "42rem");
+export const max_w_xl2 = createStyle("max-width", "42rem");
 export const max_w_screen = createStyle("max-width", "100vw");
 
 // Height

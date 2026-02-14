@@ -52,6 +52,11 @@ export function generateThemeCSS(
     css += `  --aspect-${key}: ${value};\n`;
   });
 
+  // Generate CSS variables for container
+  Object.entries(theme.container).forEach(([key, value]) => {
+    css += `  --container-${key}: ${value};\n`;
+  });
+
   // Generate CSS variables for animation
   Object.entries(theme.animation).forEach(([key, value]) => {
     css += `  --animation-${key}: ${value};\n`;
