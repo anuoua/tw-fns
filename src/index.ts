@@ -66,3 +66,7 @@ export * from "./styles/flex-grid/align-self";
 export * from "./styles/flex-grid/place-content";
 export * from "./styles/flex-grid/place-items";
 export * from "./styles/flex-grid/place-self";
+
+// Export spacing styles
+export * from "./styles/spacing/padding";
+export * from "./styles/spacing/margin";
