@@ -18,40 +18,55 @@ export const columns_12 = createStyle("columns", "12");
 // By width (using container theme variables)
 export const columns_xs3 = createStyle(
   "columns",
-  "var(--container-xs3, 16rem)",
+  `var(--container-xs3, ${defaultTheme.container.xs3})`,
 );
 export const columns_xs2 = createStyle(
   "columns",
-  "var(--container-xs2, 18rem)",
+  `var(--container-xs2, ${defaultTheme.container.xs2})`,
 );
-export const columns_xs = createStyle("columns", "var(--container-xs, 20rem)");
-export const columns_sm = createStyle("columns", "var(--container-sm, 24rem)");
-export const columns_md = createStyle("columns", "var(--container-md, 28rem)");
-export const columns_lg = createStyle("columns", "var(--container-lg, 32rem)");
-export const columns_xl = createStyle("columns", "var(--container-xl, 36rem)");
+export const columns_xs = createStyle(
+  "columns",
+  `var(--container-xs, ${defaultTheme.container.xs})`,
+);
+export const columns_sm = createStyle(
+  "columns",
+  `var(--container-sm, ${defaultTheme.container.sm})`,
+);
+export const columns_md = createStyle(
+  "columns",
+  `var(--container-md, ${defaultTheme.container.md})`,
+);
+export const columns_lg = createStyle(
+  "columns",
+  `var(--container-lg, ${defaultTheme.container.lg})`,
+);
+export const columns_xl = createStyle(
+  "columns",
+  `var(--container-xl, ${defaultTheme.container.xl})`,
+);
 export const columns_xl2 = createStyle(
   "columns",
-  "var(--container-xl2, 42rem)",
+  `var(--container-xl2, ${defaultTheme.container.xl2})`,
 );
 export const columns_xl3 = createStyle(
   "columns",
-  "var(--container-xl3, 48rem)",
+  `var(--container-xl3, ${defaultTheme.container.xl3})`,
 );
 export const columns_xl4 = createStyle(
   "columns",
-  "var(--container-xl4, 56rem)",
+  `var(--container-xl4, ${defaultTheme.container.xl4})`,
 );
 export const columns_xl5 = createStyle(
   "columns",
-  "var(--container-xl5, 64rem)",
+  `var(--container-xl5, ${defaultTheme.container.xl5})`,
 );
 export const columns_xl6 = createStyle(
   "columns",
-  "var(--container-xl6, 72rem)",
+  `var(--container-xl6, ${defaultTheme.container.xl6})`,
 );
 export const columns_xl7 = createStyle(
   "columns",
-  "var(--container-xl7, 80rem)",
+  `var(--container-xl7, ${defaultTheme.container.xl7})`,
 );
 
 // Auto

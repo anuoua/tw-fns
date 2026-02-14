@@ -22,9 +22,7 @@ export function generateThemeCSS(
   });
 
   // Generate CSS variables for spacing
-  Object.entries(theme.spacing).forEach(([key, value]) => {
-    css += `  --spacing-${key}: ${value};\n`;
-  });
+  css += `  --spacing: ${theme.spacing};\n`;
 
   // Generate CSS variables for breakpoints
   Object.entries(theme.breakpoints).forEach(([key, value]) => {
@@ -32,23 +30,18 @@ export function generateThemeCSS(
   });
 
   // Generate CSS variables for border radius
-  Object.entries(theme.borderRadius).forEach(([key, value]) => {
+  Object.entries(theme.radius).forEach(([key, value]) => {
     css += `  --radius-${key === "DEFAULT" ? "md" : key}: ${value};\n`;
   });
 
   // Generate CSS variables for box shadow
-  Object.entries(theme.boxShadow).forEach(([key, value]) => {
+  Object.entries(theme.shadow).forEach(([key, value]) => {
     const name = key === "DEFAULT" ? "md" : key;
     css += `  --shadow-${name}: ${value};\n`;
   });
 
-  // Generate CSS variables for transition
-  Object.entries(theme.transition).forEach(([key, value]) => {
-    css += `  --transition-${key}: ${value};\n`;
-  });
-
   // Generate CSS variables for aspect ratio
-  Object.entries(theme.aspectRatio).forEach(([key, value]) => {
+  Object.entries(theme.aspect).forEach(([key, value]) => {
     css += `  --aspect-${key}: ${value};\n`;
   });
 
@@ -58,7 +51,7 @@ export function generateThemeCSS(
   });
 
   // Generate CSS variables for animation
-  Object.entries(theme.animation).forEach(([key, value]) => {
+  Object.entries(theme.animate).forEach(([key, value]) => {
     css += `  --animation-${key}: ${value};\n`;
   });
 

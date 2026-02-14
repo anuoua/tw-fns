@@ -33,15 +33,63 @@ export type StyleCollection = StyleFn[];
 export type AnyStyle = StyleFn | VariantStyleFn | null | undefined | boolean;
 
 export type Theme = {
-  colors: Record<string, Record<string, string>>;
-  spacing: Record<string, string>;
+  // Font families
   fontFamily: Record<string, string[]>;
+
+  // Colors
+  colors: Record<string, Record<string, string | Record<string, string>>>;
+
+  // Spacing base unit (single value)
+  spacing: string;
+
+  // Breakpoints
   breakpoints: Record<string, string>;
-  borderRadius: Record<string, string>;
-  boxShadow: Record<string, string>;
-  transition: Record<string, string>;
-  aspectRatio: Record<string, string>;
+
+  // Container widths
   container: Record<string, string>;
-  animation: Record<string, string>;
-  keyframes: Record<string, Record<string, Record<string, string>>>;
+
+  // Font sizes
+  text: Record<string, string>;
+
+  // Font weights
+  fontWeight: Record<string, string>;
+
+  // Letter spacing
+  tracking: Record<string, string>;
+
+  // Line height
+  leading: Record<string, string>;
+
+  // Border radius
+  radius: Record<string, string>;
+
+  // Box shadows
+  shadow: Record<string, string>;
+
+  // Inset shadows
+  insetShadow: Record<string, string>;
+
+  // Drop shadows
+  dropShadow: Record<string, string>;
+
+  // Text shadows
+  textShadow: Record<string, string>;
+
+  // Blur
+  blur: Record<string, string>;
+
+  // Perspective
+  perspective: Record<string, string>;
+
+  // Aspect ratios
+  aspect: Record<string, string>;
+
+  // Easing functions
+  ease: Record<string, string>;
+
+  // Animations
+  animate: Record<string, string>;
+
+  // Keyframes
+  keyframes: Record<string, Record<string, Record<string, string | string[]>>>;
 };
