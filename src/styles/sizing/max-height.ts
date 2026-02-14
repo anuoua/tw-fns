@@ -1,0 +1,95 @@
+import { createStyle, createMappedStyle } from "../../core/style";
+import { spacingMap, fractionMap } from "../../../mappings/spacing";
+
+// Basic values
+export const max_h_0 = createStyle("max-height", "0");
+export const max_h_none = createStyle("max-height", "none");
+export const max_h_px = createStyle("max-height", "1px");
+export const max_h_full = createStyle("max-height", "100%");
+export const max_h_min = createStyle("max-height", "min-content");
+export const max_h_max = createStyle("max-height", "max-content");
+export const max_h_fit = createStyle("max-height", "fit-content");
+export const max_h_screen = createStyle("max-height", "100vh");
+
+// Spacing scale values
+export const max_h_0_5 = createMappedStyle("max-height", "0_5", spacingMap);
+export const max_h_1 = createMappedStyle("max-height", "1", spacingMap);
+export const max_h_2 = createMappedStyle("max-height", "2", spacingMap);
+export const max_h_3 = createMappedStyle("max-height", "3", spacingMap);
+export const max_h_4 = createMappedStyle("max-height", "4", spacingMap);
+export const max_h_5 = createMappedStyle("max-height", "5", spacingMap);
+export const max_h_6 = createMappedStyle("max-height", "6", spacingMap);
+export const max_h_7 = createMappedStyle("max-height", "7", spacingMap);
+export const max_h_8 = createMappedStyle("max-height", "8", spacingMap);
+export const max_h_9 = createMappedStyle("max-height", "9", spacingMap);
+export const max_h_10 = createMappedStyle("max-height", "10", spacingMap);
+export const max_h_11 = createMappedStyle("max-height", "11", spacingMap);
+export const max_h_12 = createMappedStyle("max-height", "12", spacingMap);
+export const max_h_14 = createMappedStyle("max-height", "14", spacingMap);
+export const max_h_16 = createMappedStyle("max-height", "16", spacingMap);
+export const max_h_20 = createMappedStyle("max-height", "20", spacingMap);
+export const max_h_24 = createMappedStyle("max-height", "24", spacingMap);
+export const max_h_28 = createMappedStyle("max-height", "28", spacingMap);
+export const max_h_32 = createMappedStyle("max-height", "32", spacingMap);
+export const max_h_36 = createMappedStyle("max-height", "36", spacingMap);
+export const max_h_40 = createMappedStyle("max-height", "40", spacingMap);
+export const max_h_44 = createMappedStyle("max-height", "44", spacingMap);
+export const max_h_48 = createMappedStyle("max-height", "48", spacingMap);
+export const max_h_52 = createMappedStyle("max-height", "52", spacingMap);
+export const max_h_56 = createMappedStyle("max-height", "56", spacingMap);
+export const max_h_60 = createMappedStyle("max-height", "60", spacingMap);
+export const max_h_64 = createMappedStyle("max-height", "64", spacingMap);
+export const max_h_72 = createMappedStyle("max-height", "72", spacingMap);
+export const max_h_80 = createMappedStyle("max-height", "80", spacingMap);
+export const max_h_96 = createMappedStyle("max-height", "96", spacingMap);
+export const max_h_128 = createMappedStyle("max-height", "128", spacingMap);
+export const max_h_144 = createMappedStyle("max-height", "144", spacingMap);
+export const max_h_160 = createMappedStyle("max-height", "160", spacingMap);
+export const max_h_192 = createMappedStyle("max-height", "192", spacingMap);
+export const max_h_224 = createMappedStyle("max-height", "224", spacingMap);
+export const max_h_256 = createMappedStyle("max-height", "256", spacingMap);
+export const max_h_288 = createMappedStyle("max-height", "288", spacingMap);
+export const max_h_320 = createMappedStyle("max-height", "320", spacingMap);
+export const max_h_384 = createMappedStyle("max-height", "384", spacingMap);
+export const max_h_448 = createMappedStyle("max-height", "448", spacingMap);
+export const max_h_512 = createMappedStyle("max-height", "512", spacingMap);
+export const max_h_576 = createMappedStyle("max-height", "576", spacingMap);
+export const max_h_640 = createMappedStyle("max-height", "640", spacingMap);
+export const max_h_704 = createMappedStyle("max-height", "704", spacingMap);
+export const max_h_768 = createMappedStyle("max-height", "768", spacingMap);
+export const max_h_832 = createMappedStyle("max-height", "832", spacingMap);
+export const max_h_896 = createMappedStyle("max-height", "896", spacingMap);
+export const max_h_960 = createMappedStyle("max-height", "960", spacingMap);
+
+// Fraction values
+export const max_h_1_2 = createMappedStyle("max-height", "1_2", fractionMap);
+export const max_h_1_3 = createMappedStyle("max-height", "1_3", fractionMap);
+export const max_h_2_3 = createMappedStyle("max-height", "2_3", fractionMap);
+export const max_h_1_4 = createMappedStyle("max-height", "1_4", fractionMap);
+export const max_h_2_4 = createMappedStyle("max-height", "2_4", fractionMap);
+export const max_h_3_4 = createMappedStyle("max-height", "3_4", fractionMap);
+export const max_h_1_5 = createMappedStyle("max-height", "1_5", fractionMap);
+export const max_h_2_5 = createMappedStyle("max-height", "2_5", fractionMap);
+export const max_h_3_5 = createMappedStyle("max-height", "3_5", fractionMap);
+export const max_h_4_5 = createMappedStyle("max-height", "4_5", fractionMap);
+export const max_h_1_6 = createMappedStyle("max-height", "1_6", fractionMap);
+export const max_h_2_6 = createMappedStyle("max-height", "2_6", fractionMap);
+export const max_h_3_6 = createMappedStyle("max-height", "3_6", fractionMap);
+export const max_h_4_6 = createMappedStyle("max-height", "4_6", fractionMap);
+export const max_h_5_6 = createMappedStyle("max-height", "5_6", fractionMap);
+export const max_h_1_12 = createMappedStyle("max-height", "1_12", fractionMap);
+export const max_h_2_12 = createMappedStyle("max-height", "2_12", fractionMap);
+export const max_h_3_12 = createMappedStyle("max-height", "3_12", fractionMap);
+export const max_h_4_12 = createMappedStyle("max-height", "4_12", fractionMap);
+export const max_h_5_12 = createMappedStyle("max-height", "5_12", fractionMap);
+export const max_h_6_12 = createMappedStyle("max-height", "6_12", fractionMap);
+export const max_h_7_12 = createMappedStyle("max-height", "7_12", fractionMap);
+export const max_h_8_12 = createMappedStyle("max-height", "8_12", fractionMap);
+export const max_h_9_12 = createMappedStyle("max-height", "9_12", fractionMap);
+export const max_h_10_12 = createMappedStyle("max-height", "10_12", fractionMap);
+export const max_h_11_12 = createMappedStyle("max-height", "11_12", fractionMap);
+
+// Dynamic viewport height units
+export const max_h_dvh = createStyle("max-height", "100dvh");
+export const max_h_lvh = createStyle("max-height", "100lvh");
+export const max_h_svh = createStyle("max-height", "100svh");

@@ -70,3 +70,11 @@ export * from "./styles/flex-grid/place-self";
 // Export spacing styles
 export * from "./styles/spacing/padding";
 export * from "./styles/spacing/margin";
+
+// Export sizing styles
+export * from "./styles/sizing/width";
+export * from "./styles/sizing/min-width";
+export * from "./styles/sizing/max-width";
+export * from "./styles/sizing/height";
+export * from "./styles/sizing/min-height";
+export * from "./styles/sizing/max-height";
