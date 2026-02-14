@@ -19,3 +19,6 @@ export {
   createStyleWithValue,
   createMappedStyle,
 } from "./core/style";
+
+// Export layout styles
+export * from "./styles/layout/aspect-ratio";

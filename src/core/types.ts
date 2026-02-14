@@ -40,6 +40,7 @@ export type Theme = {
   borderRadius: Record<string, string>;
   boxShadow: Record<string, string>;
   transition: Record<string, string>;
+  aspectRatio: Record<string, string>;
   animation: Record<string, string>;
   keyframes: Record<string, Record<string, Record<string, string>>>;
 };

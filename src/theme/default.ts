@@ -98,6 +98,23 @@ export const defaultTheme: Theme = {
   transition: {
     all: "all 0.15s ease-in-out",
   },
+  aspectRatio: {
+    auto: "auto",
+    square: "1 / 1",
+    video: "16 / 9",
+    "1-1": "1 / 1",
+    "3-2": "3 / 2",
+    "4-3": "4 / 3",
+    "5-4": "5 / 4",
+    "16-9": "16 / 9",
+    "2-1": "2 / 1",
+    "21-9": "21 / 9",
+    "9-16": "9 / 16",
+    "3-4": "3 / 4",
+    "4-5": "4 / 5",
+    "9-20": "9 / 20",
+    "2-3": "2 / 3",
+  },
   animation: {
     spin: "spin 1s linear infinite",
     ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",

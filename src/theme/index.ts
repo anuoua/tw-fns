@@ -47,6 +47,11 @@ export function generateThemeCSS(
     css += `  --transition-${key}: ${value};\n`;
   });
 
+  // Generate CSS variables for aspect ratio
+  Object.entries(theme.aspectRatio).forEach(([key, value]) => {
+    css += `  --aspect-${key}: ${value};\n`;
+  });
+
   // Generate CSS variables for animation
   Object.entries(theme.animation).forEach(([key, value]) => {
     css += `  --animation-${key}: ${value};\n`;
