@@ -24,3 +24,4 @@ export {
 export * from "./styles/layout/aspect-ratio";
 export * from "./styles/layout/columns";
 export * from "./styles/layout/break-after";
+export * from "./styles/layout/break-before";
