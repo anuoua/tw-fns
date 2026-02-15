@@ -92,10 +92,29 @@ function getVariantInfo(
   return undefined;
 }
 
-function stylesToCSS(rules: StyleRule[]): string {
+function stylesToCSS(rules: (StyleRule | MultiStyleRule)[]): string {
   return rules
-    .map(({ property, value }) => `  ${property}: ${value};`)
+    .map((rule) => {
+      if (typeof rule === "object" && "property" in rule && "value" in rule) {
+        // StyleRule format
+        return `  ${rule.property}: ${rule.value};`;
+      } else if (typeof rule === "object" && !("property" in rule)) {
+        // MultiStyleRule format - convert to CSS
+        return Object.entries(rule)
+          .map(([property, value]) => {
+            const cssProperty = camelToKebab(property);
+            return `  ${cssProperty}: ${value};`;
+          })
+          .join("\n");
+      }
+      return "";
+    })
+    .filter(Boolean)
     .join("\n");
+}
+
+function camelToKebab(str: string): string {
+  return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function getVariantKey(variant: VariantInfo): string {
