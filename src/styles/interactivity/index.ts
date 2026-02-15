@@ -2,7 +2,8 @@ import { createStyle } from "../../core/style";
 
 // Accent color
 export const accent_auto = createStyle("accent-color", "auto");
-export const createAccentColor = (value: string) => createStyle("accent-color", value);
+export const createAccentColor = (value: string) =>
+  createStyle("accent-color", value);
 
 // Appearance
 export const appearance_none = createStyle("appearance", "none");
@@ -10,12 +11,16 @@ export const appearance_auto = createStyle("appearance", "auto");
 
 // Caret color
 export const caret_auto = createStyle("caret-color", "auto");
-export const createCaretColor = (value: string) => createStyle("caret-color", value);
+export const createCaretColor = (value: string) =>
+  createStyle("caret-color", value);
 
 // Color scheme
-export const dark = createStyle("color-scheme", "dark");
-export const light = createStyle("color-scheme", "light");
-export const color_scheme_normal = createStyle("color-scheme", "normal");
+export const scheme_normal = createStyle("color-scheme", "normal");
+export const scheme_dark = createStyle("color-scheme", "dark");
+export const scheme_light = createStyle("color-scheme", "light");
+export const scheme_light_dark = createStyle("color-scheme", "light dark");
+export const scheme_only_dark = createStyle("color-scheme", "only dark");
+export const scheme_only_light = createStyle("color-scheme", "only light");
 
 // Cursor
 export const cursor_auto = createStyle("cursor", "auto");
@@ -100,4 +105,5 @@ export const will_change_scroll = createStyle("will-change", "scroll-position");
 export const will_change_contents = createStyle("will-change", "contents");
 export const will_change_transform = createStyle("will-change", "transform");
 export const will_change_opacity = createStyle("will-change", "opacity");
-export const createWillChange = (value: string) => createStyle("will-change", value);
+export const createWillChange = (value: string) =>
+  createStyle("will-change", value);

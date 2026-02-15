@@ -134,7 +134,8 @@ export * from "./styles/borders/outline-offset";
 // Export effects styles
 export * from "./styles/effects/box-shadow";
 export * from "./styles/effects/text-shadow";
-export * from "./styles/effects/opacity-blend-mode";
+export * from "./styles/effects/opacity";
+export * from "./styles/effects/mix-blend-mode";
 export * from "./styles/effects/background-blend-mode";
 export * from "./styles/effects/mask-clip";
 export * from "./styles/effects/mask-composite";

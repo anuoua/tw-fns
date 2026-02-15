@@ -4,7 +4,15 @@ import { createStyle } from "../../core/style";
 export const transform_none = createStyle("transform", "none");
 
 // GPU acceleration utilities
-export const translate_z_0 = createStyle("transform", "translateZ(0)");
-export const will_change_transform = createStyle("will-change", "transform");
-export const preserve_3d = createStyle("transform-style", "preserve-3d");
-export const flat = createStyle("transform-style", "flat");
+export const transform_gpu = createStyle(
+  "transform",
+  "translateZ(0) var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y)"
+);
+
+export const transform_cpu = createStyle(
+  "transform",
+  "var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y)"
+);
+
+// Custom value utilities
+export const createTransform = (value: string) => createStyle("transform", value);
