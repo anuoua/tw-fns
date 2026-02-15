@@ -2,7 +2,7 @@
   "name": "jstw",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "A simple example library built by tsdown",
   "exports": {
     ".": "./dist/index.mjs",
