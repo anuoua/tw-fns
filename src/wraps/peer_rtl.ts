@@ -1,0 +1,3 @@
+export const peer_rtl = (...fns: (() => string)[]) => () => `&:is(:where(.peer):where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) ~ *) {
+${fns.map((fn) => fn()).join("\n")}
+}`;

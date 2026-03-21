@@ -1,0 +1,12 @@
+/**
+ * --tw-translate-x: calc(var(--spacing) * 44);
+ *
+ * --tw-translate-y: calc(var(--spacing) * 44);
+ *
+ * translate: var(--tw-translate-x) var(--tw-translate-y);
+ */
+export const translate_44 = () => `
+    --tw-translate-x: calc(var(--spacing) * 44);
+    --tw-translate-y: calc(var(--spacing) * 44);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  `;

@@ -1,0 +1,3 @@
+export const at_max_xl3 = (...fns: (() => string)[]) => () => `@container (width < 48rem) {
+${fns.map((fn) => fn()).join("\n")}
+}`;

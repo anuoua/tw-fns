@@ -1,0 +1,3 @@
+export const max_md = (...fns: (() => string)[]) => () => `@media (width < 48rem) {
+${fns.map((fn) => fn()).join("\n")}
+}`;

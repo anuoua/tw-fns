@@ -1,0 +1,1 @@
+export const mask_radial_from_ = (arbitrary: string) => () => `mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black ${arbitrary}, transparent var(--tw-mask-radial-to));`;
