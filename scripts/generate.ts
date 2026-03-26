@@ -195,9 +195,13 @@ for (const item of wrapArr) {
     ? item.detail.replace(/\}$/, `{\n${fns}\n}}`)
     : item.detail + ` {\n${fns}\n}`;
 
+  const contenReplaceed = content
+    .replace(":where(.peer)", `:where([aria-peer])`)
+    .replace(":where(.group)", `:where([aria-group])`);
+
   writeFileSync(
     `./src/wraps/${name}.ts`,
-    `export const ${name} = (...fns: (() => string)[]) => () => \`${content}\`;\n`,
+    `export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\`;\n`,
     "utf-8",
   );
 }
