@@ -329,7 +329,7 @@ const utilitiesArbitraryExports = utilitiesArbitrary
 const toolsExports = tools
   .map(
     (file) =>
-      `export { ${getExportName(file)} } from "./tools/${getExportName(file)}";`,
+      `export * from "./tools/${getExportName(file)}";`,
   )
   .join("\n");
 
