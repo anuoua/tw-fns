@@ -24,6 +24,9 @@ jobs:
         with:
           version: 10.23.0
 
+      - name: CD to package directory
+        run: cd packages/tw-fns
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
