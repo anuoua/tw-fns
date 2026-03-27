@@ -259,7 +259,15 @@ const utilitiesLayer = output
   .slice(utilitiesLayerStartIndex + 1, utilitiesLayerEndIndex)
   .join("\n");
 
+const lines = output.split("\n");
+lines.splice(
+  utilitiesLayerStartIndex,
+  utilitiesLayerEndIndex - utilitiesLayerStartIndex,
+);
+const resetLayers = lines.join("\n");
+
 writeFileSync("./utilities.css", utilitiesLayer, "utf-8");
+writeFileSync("./base.css", resetLayers, "utf-8");
 
 const reg = /\.(.*)\s+\{([\n.\s\S]*?)\}/g;
 
@@ -327,10 +335,7 @@ const utilitiesArbitraryExports = utilitiesArbitrary
   .join("\n");
 
 const toolsExports = tools
-  .map(
-    (file) =>
-      `export * from "./tools/${getExportName(file)}";`,
-  )
+  .map((file) => `export * from "./tools/${getExportName(file)}";`)
   .join("\n");
 
 const indexContent = `${wrapsExports}\n${wrapsArbitraryExports}\n${utilitiesExports}\n${utilitiesArbitraryExports}\n${toolsExports}\n`;

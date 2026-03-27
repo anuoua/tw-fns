@@ -1,11 +1,11 @@
-name: tw-fns release
+name: \@tw-fns/react release
 
 on:
   push:
     branches:
       - "main"
     paths:
-      - "packages/tw-fns/**"
+      - "packages/react/**"
 
 permissions:
   contents: read
@@ -14,7 +14,7 @@ permissions:
 jobs:
   test-build-publish:
     runs-on: ubuntu-latest
-    if: ${{startsWith(github.event.head_commit.message, 'release(tw-fns):')}}
+    if: ${{startsWith(github.event.head_commit.message, 'release(react):')}}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6

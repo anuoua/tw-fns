@@ -1,104 +1,115 @@
 enum AssetType {
-    Build = "build",
-    When = "when",
+  Build = "build",
+  When = "when",
 }
 
 export interface BuildAsset {
-    type: AssetType;
-    fns: (() => string)[];
-    valid: boolean;
+  type: AssetType;
+  fns: (() => string)[];
+  valid: boolean;
 }
 
 export const build = (...args: (() => string)[]) => {
-    const assets: BuildAsset[] = [{
+  const assets: BuildAsset[] = [
+    {
+      type: AssetType.Build,
+      fns: args,
+      valid: true,
+    },
+  ];
+
+  const chain = {
+    when(bool: boolean, ...fns: (() => string)[]) {
+      assets.push({
         type: AssetType.Build,
-        fns: args,
-        valid: true,
-    }]
+        fns,
+        valid: bool,
+      });
+      return chain;
+    },
+    getAssets() {
+      return assets;
+    },
+  };
 
-    const chain = {
-        when(bool: boolean, ...fns: (() => string)[]) {
-            assets.push({
-                type: AssetType.Build,
-                fns,
-                valid: bool,
-            });
-            return chain;
-        },
-        getAssets() {
-            return assets;
-        },
-    };
-
-    return chain as Pick<typeof chain, "when">;
-}
+  return chain as Pick<typeof chain, "when">;
+};
 
 type BuildReturn = ReturnType<typeof build>;
 
-export const getStyles = (rootClass: string, builder: BuildReturn | (() => BuildReturn)) => {
-    let buildAssets: BuildAssets[] = [];
+export const getStyles = (
+  rootClass: string,
+  builder: BuildReturn | (() => BuildReturn),
+) => {
+  let buildAssets: BuildAsset[] = [];
 
-    if (typeof builder === 'function') {
-        buildAssets = (builder() as any).getAssets() as BuildAsset[];
-    } else {
-        buildAssets = (builder as any).getAssets() as BuildAsset[]
-    }
+  if (typeof builder === "function") {
+    buildAssets = (builder() as any).getAssets() as BuildAsset[];
+  } else {
+    buildAssets = (builder as any).getAssets() as BuildAsset[];
+  }
 
-    const builded = [...buildAssets];
+  const builded = [...buildAssets];
 
-    const result = builded.reduce((pre, cur) => {
-        switch (cur.type) {
-            case AssetType.Build: {
-                const parentClass = pre.parentClass
-                return {
-                    parentClass,
-                    styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map(fn => fn()).join("\n")}}`
-                }
-            }
-            case AssetType.When: {
-                const parentClass = `${pre.parentClass}_w`
-                return {
-                    parentClass,
-                    styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map(fn => fn()).join("\n")}}`
-                }
-            }
+  const result = builded.reduce(
+    (pre, cur) => {
+      switch (cur.type) {
+        case AssetType.Build: {
+          const parentClass = pre.parentClass;
+          return {
+            parentClass,
+            styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map((fn) => fn()).join("\n")}}`,
+          };
         }
-    }, {
-        parentClass: rootClass,
-        styleStr: ""
-    } as { parentClass: string, styleStr: string })
+        case AssetType.When: {
+          const parentClass = `${pre.parentClass}_w`;
+          return {
+            parentClass,
+            styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map((fn) => fn()).join("\n")}}`,
+          };
+        }
+      }
+    },
+    {
+      parentClass: rootClass,
+      styleStr: "",
+    } as { parentClass: string; styleStr: string },
+  );
 
-    return result.styleStr;
-}
+  return result.styleStr;
+};
 
 export const getClasses = (rootClass: string, builder: BuildReturn) => {
-    let buildAssets = [];
+  let buildAssets = [];
 
-    buildAssets = (builder as any).getAssets()
+  buildAssets = (builder as any).getAssets();
 
-    const builded = [...buildAssets];
+  const builded = [...buildAssets];
 
-    const result = builded.reduce((pre, cur) => {
-        switch (cur.type) {
-            case AssetType.Build: {
-                const parentClass = pre.parentClass
-                return {
-                    parentClass,
-                    classes: pre.classes,
-                }
-            }
-            case AssetType.When: {
-                const parentClass = `${pre.parentClass}_w`
-                return {
-                    parentClass,
-                    classes: cur.valid ? `${pre.classes} ${parentClass}` : pre.classes,
-                }
-            }
+  const result = builded.reduce(
+    (pre, cur) => {
+      switch (cur.type) {
+        case AssetType.Build: {
+          const parentClass = pre.parentClass;
+          return {
+            parentClass,
+            classes: pre.classes,
+          };
         }
-    }, {
-        parentClass: rootClass,
-        classes: rootClass
-    } as { parentClass: string, classes: string })
+        case AssetType.When: {
+          const parentClass = `${pre.parentClass}_w`;
+          return {
+            parentClass,
+            classes: cur.valid ? `${pre.classes} ${parentClass}` : pre.classes,
+          };
+        }
+      }
+    },
+    {
+      parentClass: rootClass,
+      classes: rootClass,
+    } as { parentClass: string; classes: string },
+  );
 
-    return result.classes;
-}
+  return result.classes;
+};
