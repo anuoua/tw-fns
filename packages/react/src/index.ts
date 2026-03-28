@@ -1,37 +1,46 @@
-import { useId, useInsertionEffect, useRef } from "react";
+import { useInsertionEffect, useRef } from "react";
 import { getStyles, getClasses } from "tw-fns";
 
-export const useStyles = <T extends Record<string, any>>(
+let count = BigInt(0);
+
+const getId = () => (++count).toString(32);
+
+export const createStyles = <T extends Record<string, any>>(
   styleMap: T,
   customId?: string,
 ) => {
-  const compId = useId();
-  const id = customId ?? styleMap.id ?? compId;
+  return {
+    id: `twfns_${customId ?? getId()}`,
+    mounted: false,
+    refCount: 0,
+    entries: Object.entries(styleMap),
+    styleMap,
+  };
+};
 
-  !styleMap.id &&
-    Object.defineProperty(styleMap, "id", {
-      value: id,
-      enumerable: false,
-    });
+export const useStyles = <T extends ReturnType<typeof createStyles>>(
+  styles: T,
+) => {
+  type StyleMap = T["styleMap"];
 
-  const styleId = `data-twfns${id}`;
+  const { styleMap, id } = styles;
 
   type ProxyInstance = {
-    [K in keyof T]: T[K] extends Function
-      ? (...args: Parameters<T[K]>) => string
+    [K in keyof StyleMap]: StyleMap[K] extends Function
+      ? (...args: Parameters<StyleMap[K]>) => string
       : string;
   };
 
   const proxyRef = useRef<ProxyInstance>(null);
 
   useInsertionEffect(() => {
-    if (styleMap.done || document.getElementById(styleId)) return;
+    const styleId = `style_${id}`;
+    if (styles.mounted || document.getElementById(styleId)) return;
     const style = document.createElement("style");
     style.id = styleId;
     let styleContent = "";
-    const entries = Object.entries(styleMap);
 
-    for (const entry of entries) {
+    for (const entry of styles.entries) {
       const [key, value] = entry;
       styleContent += getStyles(`${key}_${id}`, value);
     }
@@ -40,16 +49,14 @@ export const useStyles = <T extends Record<string, any>>(
 
     document.head.append(style);
 
-    Object.defineProperty(styleMap, "done", {
-      value: true,
-      enumerable: false,
-    });
+    styles.mounted = true;
+    styles.refCount++;
   });
 
   proxyRef.current = new Proxy(
     {} as {
-      [K in keyof T]: T[K] extends Function
-        ? (...args: Parameters<T[K]>) => string
+      [K in keyof StyleMap]: StyleMap[K] extends Function
+        ? (...args: Parameters<StyleMap[K]>) => string
         : string;
     },
     {
