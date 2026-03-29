@@ -1,6 +1,7 @@
 enum AssetType {
   Build = "build",
   When = "when",
+  Else = "else",
 }
 
 export interface BuildAsset {
@@ -21,11 +22,19 @@ export const build = (...args: (() => string)[]) => {
   const chain = {
     when(bool: boolean, ...fns: (() => string)[]) {
       assets.push({
-        type: AssetType.Build,
+        type: AssetType.When,
         fns,
         valid: bool,
       });
-      return chain;
+      return chain as Pick<typeof chain, "when" | "else">;
+    },
+    else(...fns: (() => string)[]) {
+      assets.push({
+        type: AssetType.Else,
+        fns,
+        valid: assets.at(-1)?.valid === false,
+      });
+      return chain as Pick<typeof chain, "when">;
     },
     getAssets() {
       return assets;
@@ -58,14 +67,21 @@ export const getStyles = (
           const parentClass = pre.parentClass;
           return {
             parentClass,
-            styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map((fn) => fn()).join("\n")}}`,
+            styleStr: `${pre.styleStr}\n.${parentClass} {\n${cur.fns.map((fn) => fn()).join("\n")}\n}`,
           };
         }
         case AssetType.When: {
           const parentClass = `${pre.parentClass}_w`;
           return {
             parentClass,
-            styleStr: `${pre.styleStr}\n.${parentClass}{\n${cur.fns.map((fn) => fn()).join("\n")}}`,
+            styleStr: `${pre.styleStr}\n.${parentClass} {\n${cur.fns.map((fn) => fn()).join("\n")}\n}`,
+          };
+        }
+        case AssetType.Else: {
+          const parentClass = `${pre.parentClass}_e`;
+          return {
+            parentClass,
+            styleStr: `${pre.styleStr}\n.${parentClass} {\n${cur.fns.map((fn) => fn()).join("\n")}\n}`,
           };
         }
       }
@@ -98,6 +114,13 @@ export const getClasses = (rootClass: string, builder: BuildReturn) => {
         }
         case AssetType.When: {
           const parentClass = `${pre.parentClass}_w`;
+          return {
+            parentClass,
+            classes: cur.valid ? `${pre.classes} ${parentClass}` : pre.classes,
+          };
+        }
+        case AssetType.Else: {
+          const parentClass = `${pre.parentClass}_e`;
           return {
             parentClass,
             classes: cur.valid ? `${pre.classes} ${parentClass}` : pre.classes,
