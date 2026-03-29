@@ -11,19 +11,17 @@ export const createStyles = <T extends Record<string, any>>(
 ) => {
   return {
     id: `twfns_${customId ?? getId()}`,
-    mounted: false,
     refCount: 0,
-    entries: Object.entries(styleMap),
     styleMap,
   };
 };
 
 export const useStyles = <T extends ReturnType<typeof createStyles>>(
-  styles: T,
+  state: T,
 ) => {
   type StyleMap = T["styleMap"];
 
-  const { styleMap, id } = styles;
+  const { styleMap, id } = state;
 
   type ProxyInstance = {
     [K in keyof StyleMap]: StyleMap[K] extends Function
@@ -35,12 +33,12 @@ export const useStyles = <T extends ReturnType<typeof createStyles>>(
 
   useInsertionEffect(() => {
     const styleId = `style_${id}`;
-    if (styles.mounted || document.getElementById(styleId)) return;
+    if (!!state.refCount || document.getElementById(styleId)) return;
     const style = document.createElement("style");
     style.id = styleId;
     let styleContent = "";
 
-    for (const entry of styles.entries) {
+    for (const entry of Object.entries(styleMap)) {
       const [key, value] = entry;
       styleContent += getStyles(`${key}_${id}`, value);
     }
@@ -49,9 +47,15 @@ export const useStyles = <T extends ReturnType<typeof createStyles>>(
 
     document.head.append(style);
 
-    styles.mounted = true;
-    styles.refCount++;
-  });
+    state.refCount++;
+
+    return () => {
+      state.refCount--;
+      if (state.refCount === 0) {
+        style.remove();
+      }
+    };
+  }, []);
 
   proxyRef.current = new Proxy(
     {} as {
