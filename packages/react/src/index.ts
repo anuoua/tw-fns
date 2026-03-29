@@ -1,4 +1,4 @@
-import { useInsertionEffect, useRef } from "react";
+import { cache, useInsertionEffect, useRef } from "react";
 import { getStyles, getClasses } from "tw-fns";
 
 let count = BigInt(0);
@@ -16,6 +16,8 @@ export const createStyles = <T extends Record<string, any>>(
   };
 };
 
+const cacheMap = new Map<string, HTMLStyleElement>();
+
 export const useStyles = <T extends ReturnType<typeof createStyles>>(
   state: T,
 ) => {
@@ -32,30 +34,34 @@ export const useStyles = <T extends ReturnType<typeof createStyles>>(
   const proxyRef = useRef<ProxyInstance>(null);
 
   useInsertionEffect(() => {
-    const styleId = `style_${id}`;
-    if (!!state.refCount || document.getElementById(styleId)) return;
-    const style = document.createElement("style");
-    style.id = styleId;
-    let styleContent = "";
+    if (!state.refCount && !cacheMap.get(id)) {
+      const style = document.createElement("style");
 
-    for (const entry of Object.entries(styleMap)) {
-      const [key, value] = entry;
-      styleContent += getStyles(`${key}_${id}`, value);
+      style.id = id;
+
+      let styleContent = "";
+
+      for (const entry of Object.entries(styleMap)) {
+        const [key, value] = entry;
+        styleContent += getStyles(`${key}_${id}`, value);
+      }
+
+      style.innerHTML = styleContent;
+
+      document.head.append(style);
+
+      cacheMap.set(id, style);
     }
-
-    style.innerHTML = styleContent;
-
-    document.head.append(style);
 
     state.refCount++;
 
     return () => {
       state.refCount--;
       if (state.refCount === 0) {
-        style.remove();
+        cacheMap.get(id)?.remove();
       }
     };
-  }, []);
+  }, [state]);
 
   proxyRef.current = new Proxy(
     {} as {
