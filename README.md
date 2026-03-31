@@ -18,6 +18,8 @@ bun install tw-fns
 ## Usage
 
 ```ts
+// base styles
+import "tw-fns/base.css";
 import { compose, flex, flex_col, items_center, justify_center } from "tw-fns";
 
 const css = compose(flex, flex_col, items_center, justify_center);

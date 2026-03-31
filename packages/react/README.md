@@ -14,6 +14,8 @@ bun install tw-fns @tw-fns/react
 ## Usage
 
 ```tsx
+// base styles
+import "tw-fns/base.css";
 import { createStyles, useStyles } from "@tw-fns/react";
 import { build, flex, flex_col, items_center, justify_center } from "tw-fns";
 
