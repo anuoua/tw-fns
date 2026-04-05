@@ -1,6 +1,4 @@
 /**
- * display: none;
+ * - display: none;
  */
-export const hidden = () => `
-    display: none;
-  `;
+export const hidden = () => `  display: none;`;

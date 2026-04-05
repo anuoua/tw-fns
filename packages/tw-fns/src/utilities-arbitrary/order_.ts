@@ -1,1 +1,4 @@
-export const order_ = (arbitrary: string) => () => `order: ${arbitrary};`;
+/**
+ * - order: ${arbitrary};
+ */
+export const order_ = (arbitrary: string) => () => `  order: ${arbitrary};`;

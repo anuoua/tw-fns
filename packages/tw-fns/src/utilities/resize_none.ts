@@ -1,6 +1,4 @@
 /**
- * resize: none;
+ * - resize: none;
  */
-export const resize_none = () => `
-    resize: none;
-  `;
+export const resize_none = () => `  resize: none;`;

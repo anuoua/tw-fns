@@ -1,6 +1,4 @@
 /**
- * scroll-margin-inline: calc(var(--spacing) * 1.5);
+ * - scroll-margin-inline: calc(var(--spacing) * 1.5);
  */
-export const scroll_mx_1_dot_5 = () => `
-    scroll-margin-inline: calc(var(--spacing) * 1.5);
-  `;
+export const scroll_mx_1_dot_5 = () => `  scroll-margin-inline: calc(var(--spacing) * 1.5);`;

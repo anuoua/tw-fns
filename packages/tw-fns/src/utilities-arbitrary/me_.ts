@@ -1,1 +1,4 @@
-export const me_ = (arbitrary: string) => () => `margin-inline-end: ${arbitrary};`;
+/**
+ * - margin-inline-end: ${arbitrary};
+ */
+export const me_ = (arbitrary: string) => () => `  margin-inline-end: ${arbitrary};`;

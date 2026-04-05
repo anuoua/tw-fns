@@ -1,6 +1,4 @@
 /**
- * clear: right;
+ * - clear: right;
  */
-export const clear_right = () => `
-    clear: right;
-  `;
+export const clear_right = () => `  clear: right;`;

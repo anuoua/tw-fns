@@ -1,6 +1,4 @@
 /**
- * columns: 5;
+ * - columns: 5;
  */
-export const columns_5 = () => `
-    columns: 5;
-  `;
+export const columns_5 = () => `  columns: 5;`;

@@ -1,6 +1,4 @@
 /**
- * cursor: text;
+ * - cursor: text;
  */
-export const cursor_text = () => `
-    cursor: text;
-  `;
+export const cursor_text = () => `  cursor: text;`;

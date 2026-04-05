@@ -1,1 +1,4 @@
-export const bg_ = (arbitrary: string) => () => `background-image: ${arbitrary};`;
+/**
+ * - background-image: ${arbitrary};
+ */
+export const bg_ = (arbitrary: string) => () => `  background-image: ${arbitrary};`;

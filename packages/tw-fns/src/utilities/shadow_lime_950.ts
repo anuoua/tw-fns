@@ -1,12 +1,8 @@
 /**
- * --tw-shadow-color: oklch(27.4% 0.072 132.109);
- *
- * @supports (color: color-mix(in lab, red, red)) {
- *
- * --tw-shadow-color: color-mix(in oklab, var(--color-lime-950) var(--tw-shadow-alpha), transparent);
+ * - --tw-shadow-color: oklch(27.4% 0.072 132.109);
+ * - @supports (color: color-mix(in lab, red, red)) {
+ * - --tw-shadow-color: color-mix(in oklab, var(--color-lime-950) var(--tw-shadow-alpha), transparent);
  */
-export const shadow_lime_950 = () => `
-    --tw-shadow-color: oklch(27.4% 0.072 132.109);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-shadow-color: color-mix(in oklab, var(--color-lime-950) var(--tw-shadow-alpha), transparent);
-    `;
+export const shadow_lime_950 = () => `  --tw-shadow-color: oklch(27.4% 0.072 132.109);
+  @supports (color: color-mix(in lab, red, red)) {
+  --tw-shadow-color: color-mix(in oklab, var(--color-lime-950) var(--tw-shadow-alpha), transparent);`;

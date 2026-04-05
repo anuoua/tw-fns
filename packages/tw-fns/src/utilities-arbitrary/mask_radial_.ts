@@ -1,1 +1,4 @@
-export const mask_radial_ = (arbitrary: string) => () => `--tw-mask-radial-size: <size> <size>;`;
+/**
+ * - --tw-mask-radial-size: <size> <size>;
+ */
+export const mask_radial_ = (arbitrary: string) => () => `  --tw-mask-radial-size: <size> <size>;`;

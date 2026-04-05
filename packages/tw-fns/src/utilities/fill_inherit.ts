@@ -1,6 +1,4 @@
 /**
- * fill: inherit;
+ * - fill: inherit;
  */
-export const fill_inherit = () => `
-    fill: inherit;
-  `;
+export const fill_inherit = () => `  fill: inherit;`;

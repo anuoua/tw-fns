@@ -1,1 +1,4 @@
-export const mr_ = (arbitrary: string) => () => `margin-right: ${arbitrary};`;
+/**
+ * - margin-right: ${arbitrary};
+ */
+export const mr_ = (arbitrary: string) => () => `  margin-right: ${arbitrary};`;

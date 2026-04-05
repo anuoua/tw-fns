@@ -1,6 +1,4 @@
 /**
- * margin-inline-start: calc(var(--spacing) * 40);
+ * - margin-inline-start: calc(var(--spacing) * 40);
  */
-export const ms_40 = () => `
-    margin-inline-start: calc(var(--spacing) * 40);
-  `;
+export const ms_40 = () => `  margin-inline-start: calc(var(--spacing) * 40);`;

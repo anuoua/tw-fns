@@ -1,1 +1,4 @@
-export const left_ = (arbitrary: string) => () => `left: ${arbitrary};`;
+/**
+ * - left: ${arbitrary};
+ */
+export const left_ = (arbitrary: string) => () => `  left: ${arbitrary};`;

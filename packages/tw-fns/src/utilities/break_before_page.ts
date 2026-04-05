@@ -1,6 +1,4 @@
 /**
- * break-before: page;
+ * - break-before: page;
  */
-export const break_before_page = () => `
-    break-before: page;
-  `;
+export const break_before_page = () => `  break-before: page;`;

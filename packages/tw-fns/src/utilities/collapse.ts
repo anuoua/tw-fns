@@ -1,6 +1,4 @@
 /**
- * visibility: collapse;
+ * - visibility: collapse;
  */
-export const collapse = () => `
-    visibility: collapse;
-  `;
+export const collapse = () => `  visibility: collapse;`;

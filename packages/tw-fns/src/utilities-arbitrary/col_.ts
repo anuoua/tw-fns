@@ -1,1 +1,4 @@
-export const col_ = (arbitrary: string) => () => `grid-column: ${arbitrary};`;
+/**
+ * - grid-column: ${arbitrary};
+ */
+export const col_ = (arbitrary: string) => () => `  grid-column: ${arbitrary};`;

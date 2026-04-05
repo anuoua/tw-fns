@@ -1,1 +1,4 @@
-export const delay_ = (arbitrary: string) => () => `transition-delay: ${arbitrary};`;
+/**
+ * - transition-delay: ${arbitrary};
+ */
+export const delay_ = (arbitrary: string) => () => `  transition-delay: ${arbitrary};`;

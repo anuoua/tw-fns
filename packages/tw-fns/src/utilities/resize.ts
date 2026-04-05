@@ -1,6 +1,4 @@
 /**
- * resize: both;
+ * - resize: both;
  */
-export const resize = () => `
-    resize: both;
-  `;
+export const resize = () => `  resize: both;`;

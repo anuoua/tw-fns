@@ -1,1 +1,4 @@
-export const bg_size_ = (arbitrary: string) => () => `background-size: ${arbitrary};`;
+/**
+ * - background-size: ${arbitrary};
+ */
+export const bg_size_ = (arbitrary: string) => () => `  background-size: ${arbitrary};`;

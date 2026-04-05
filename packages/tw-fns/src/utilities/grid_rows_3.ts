@@ -1,6 +1,4 @@
 /**
- * grid-template-rows: repeat(3, minmax(0, 1fr));
+ * - grid-template-rows: repeat(3, minmax(0, 1fr));
  */
-export const grid_rows_3 = () => `
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-  `;
+export const grid_rows_3 = () => `  grid-template-rows: repeat(3, minmax(0, 1fr));`;

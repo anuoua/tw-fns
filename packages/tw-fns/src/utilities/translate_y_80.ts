@@ -1,9 +1,6 @@
 /**
- * --tw-translate-y: calc(var(--spacing) * 80);
- *
- * translate: var(--tw-translate-x) var(--tw-translate-y);
+ * - --tw-translate-y: calc(var(--spacing) * 80);
+ * - translate: var(--tw-translate-x) var(--tw-translate-y);
  */
-export const translate_y_80 = () => `
-    --tw-translate-y: calc(var(--spacing) * 80);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  `;
+export const translate_y_80 = () => `  --tw-translate-y: calc(var(--spacing) * 80);
+  translate: var(--tw-translate-x) var(--tw-translate-y);`;

@@ -1,9 +1,6 @@
 /**
- * --tw-translate-z: calc(var(--spacing) * -7);
- *
- * translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
+ * - --tw-translate-z: calc(var(--spacing) * -7);
+ * - translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
  */
-export const _translate_z_7 = () => `
-    --tw-translate-z: calc(var(--spacing) * -7);
-    translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
-  `;
+export const _translate_z_7 = () => `  --tw-translate-z: calc(var(--spacing) * -7);
+  translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);`;

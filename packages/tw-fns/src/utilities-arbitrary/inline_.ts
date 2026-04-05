@@ -1,1 +1,4 @@
-export const inline_ = (arbitrary: string) => () => `inline-size: ${arbitrary};`;
+/**
+ * - inline-size: ${arbitrary};
+ */
+export const inline_ = (arbitrary: string) => () => `  inline-size: ${arbitrary};`;

@@ -1,1 +1,4 @@
-export const scroll_ps_ = (arbitrary: string) => () => `scroll-padding-inline-start: ${arbitrary};`;
+/**
+ * - scroll-padding-inline-start: ${arbitrary};
+ */
+export const scroll_ps_ = (arbitrary: string) => () => `  scroll-padding-inline-start: ${arbitrary};`;

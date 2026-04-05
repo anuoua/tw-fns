@@ -1,2 +1,6 @@
-export const rounded_l_ = (arbitrary: string) => () => `border-top-left-radius: ${arbitrary};
-border-bottom-left-radius: <value>;`;
+/**
+ * - border-top-left-radius: ${arbitrary};
+ * - border-bottom-left-radius: <value>;
+ */
+export const rounded_l_ = (arbitrary: string) => () => `  border-top-left-radius: ${arbitrary};
+  border-bottom-left-radius: <value>;`;

@@ -1,6 +1,4 @@
 /**
- * position: absolute;
+ * - position: absolute;
  */
-export const absolute = () => `
-    position: absolute;
-  `;
+export const absolute = () => `  position: absolute;`;

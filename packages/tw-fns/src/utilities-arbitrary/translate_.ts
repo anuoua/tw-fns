@@ -1,1 +1,4 @@
-export const translate_ = (arbitrary: string) => () => `translate: ${arbitrary} <value>;`;
+/**
+ * - translate: ${arbitrary} <value>;
+ */
+export const translate_ = (arbitrary: string) => () => `  translate: ${arbitrary} <value>;`;

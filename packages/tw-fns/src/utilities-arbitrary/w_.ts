@@ -1,1 +1,4 @@
-export const w_ = (arbitrary: string) => () => `width: ${arbitrary};`;
+/**
+ * - width: ${arbitrary};
+ */
+export const w_ = (arbitrary: string) => () => `  width: ${arbitrary};`;

@@ -1,1 +1,4 @@
-export const rotate_ = (arbitrary: string) => () => `rotate: ${arbitrary};`;
+/**
+ * - rotate: ${arbitrary};
+ */
+export const rotate_ = (arbitrary: string) => () => `  rotate: ${arbitrary};`;

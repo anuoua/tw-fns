@@ -1,6 +1,4 @@
 /**
- * display: grid;
+ * - display: grid;
  */
-export const grid = () => `
-    display: grid;
-  `;
+export const grid = () => `  display: grid;`;

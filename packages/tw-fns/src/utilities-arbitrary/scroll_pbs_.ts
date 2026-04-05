@@ -1,1 +1,4 @@
-export const scroll_pbs_ = (arbitrary: string) => () => `scroll-padding-block-start: ${arbitrary};`;
+/**
+ * - scroll-padding-block-start: ${arbitrary};
+ */
+export const scroll_pbs_ = (arbitrary: string) => () => `  scroll-padding-block-start: ${arbitrary};`;

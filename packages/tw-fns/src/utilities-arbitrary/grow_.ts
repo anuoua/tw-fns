@@ -1,1 +1,4 @@
-export const grow_ = (arbitrary: string) => () => `flex-grow: ${arbitrary};`;
+/**
+ * - flex-grow: ${arbitrary};
+ */
+export const grow_ = (arbitrary: string) => () => `  flex-grow: ${arbitrary};`;

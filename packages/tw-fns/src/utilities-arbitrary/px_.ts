@@ -1,1 +1,4 @@
-export const px_ = (arbitrary: string) => () => `padding-inline: ${arbitrary};`;
+/**
+ * - padding-inline: ${arbitrary};
+ */
+export const px_ = (arbitrary: string) => () => `  padding-inline: ${arbitrary};`;

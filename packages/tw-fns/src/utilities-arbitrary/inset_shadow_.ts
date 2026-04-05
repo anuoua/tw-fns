@@ -1,1 +1,4 @@
-export const inset_shadow_ = (arbitrary: string) => () => `box-shadow: ${arbitrary};`;
+/**
+ * - box-shadow: ${arbitrary};
+ */
+export const inset_shadow_ = (arbitrary: string) => () => `  box-shadow: ${arbitrary};`;

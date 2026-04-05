@@ -1,1 +1,4 @@
-export const saturate_ = (arbitrary: string) => () => `filter: saturate(${arbitrary});`;
+/**
+ * - filter: saturate(${arbitrary});
+ */
+export const saturate_ = (arbitrary: string) => () => `  filter: saturate(${arbitrary});`;

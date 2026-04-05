@@ -1,6 +1,4 @@
 /**
- * cursor: cell;
+ * - cursor: cell;
  */
-export const cursor_cell = () => `
-    cursor: cell;
-  `;
+export const cursor_cell = () => `  cursor: cell;`;

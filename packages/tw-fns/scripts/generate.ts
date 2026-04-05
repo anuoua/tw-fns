@@ -277,30 +277,6 @@ for (const item of wrapArr) {
   }
 }
 
-rmSync("./src/utilities-arbitrary", { recursive: true, force: true });
-mkdirSync("./src/utilities-arbitrary");
-
-for (const item of classesArbitrary) {
-  const reg = /\-\[(.*)\]$/;
-
-  const res = item.label.trim().match(reg);
-
-  if (!res) {
-    console.log("未处理的 classesArbitrary:", item.label);
-    continue;
-  }
-
-  const name = getNameFromLabel(item.label.replace(reg, "")) + "_";
-  const arbitraryPlaceholder = res[1];
-  const detail = item.desc.replace(arbitraryPlaceholder, "\${arbitrary}");
-
-  writeFileSync(
-    `./src/utilities-arbitrary/${name}.ts`,
-    `export const ${name} = (arbitrary: string) => () => \`${detail}\`;\n`,
-    "utf-8",
-  );
-}
-
 // utilities
 const arr = all
   .filter((i) => [16, 21].includes(i.kind))
@@ -348,21 +324,58 @@ rmSync("./src/utilities", { recursive: true, force: true });
 mkdirSync("./src/utilities");
 
 for (const item of res) {
-  const className = item[1];
-  const css = item[2];
+  if (!item[1]) throw new Error("className is empty");
+  if (!item[2]) throw new Error("css is empty");
 
-  const functionName = getNameFromLabel(className.trim());
+  const className = item[1].trim();
+  const css = item[2].trim();
+
+  const styles = css
+    .split("\n")
+    .filter((line) => line.trim() !== "")
+    .map((line) => line.trim());
+
+  const functionName = getNameFromLabel(className);
   const fileName = functionName + ".ts";
   const content = `/**
-${css
-  .split("\n")
-  .filter((line) => line.trim() !== "")
-  .map((line) => ` * ${line.trim()}`)
-  .join("\n *\n")}
+${styles.map((i) => " * - " + i).join("\n")}
  */
-export const ${functionName} = () => \`${css}\`;\n`;
+export const ${functionName} = () => \`${styles.map((i) => "  " + i).join("\n")}\`;
+`;
 
   writeFileSync(`./src/utilities/${fileName}`, content, "utf-8");
+}
+
+rmSync("./src/utilities-arbitrary", { recursive: true, force: true });
+mkdirSync("./src/utilities-arbitrary");
+
+for (const item of classesArbitrary) {
+  const reg = /\-\[(.*)\]$/;
+
+  const res = item.label.trim().match(reg);
+
+  if (!res) {
+    console.log("未处理的 classesArbitrary:", item.label);
+    continue;
+  }
+
+  const name = getNameFromLabel(item.label.replace(reg, "")) + "_";
+  const arbitraryPlaceholder = res[1];
+  if (!arbitraryPlaceholder) {
+    throw new Error("classesArbitrary 匹配失败: " + item.label);
+  }
+  const styles = item.desc
+    .replace(arbitraryPlaceholder, "\${arbitrary}")
+    .split("\n");
+
+  writeFileSync(
+    `./src/utilities-arbitrary/${name}.ts`,
+    `/**
+${styles.map((i) => " * - " + i).join("\n")}
+ */
+export const ${name} = (arbitrary: string) => () => \`${styles.map((i) => `  ${i}`).join("\n")}\`;\n`,
+    "utf-8",
+  );
 }
 
 // index.ts

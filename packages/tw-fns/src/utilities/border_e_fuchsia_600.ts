@@ -1,6 +1,4 @@
 /**
- * border-inline-end-color: var(--color-fuchsia-600);
+ * - border-inline-end-color: var(--color-fuchsia-600);
  */
-export const border_e_fuchsia_600 = () => `
-    border-inline-end-color: var(--color-fuchsia-600);
-  `;
+export const border_e_fuchsia_600 = () => `  border-inline-end-color: var(--color-fuchsia-600);`;

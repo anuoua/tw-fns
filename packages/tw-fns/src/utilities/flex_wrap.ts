@@ -1,6 +1,4 @@
 /**
- * flex-wrap: wrap;
+ * - flex-wrap: wrap;
  */
-export const flex_wrap = () => `
-    flex-wrap: wrap;
-  `;
+export const flex_wrap = () => `  flex-wrap: wrap;`;

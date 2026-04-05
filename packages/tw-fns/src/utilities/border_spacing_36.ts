@@ -1,12 +1,8 @@
 /**
- * --tw-border-spacing-x: calc(var(--spacing) * 36);
- *
- * --tw-border-spacing-y: calc(var(--spacing) * 36);
- *
- * border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
+ * - --tw-border-spacing-x: calc(var(--spacing) * 36);
+ * - --tw-border-spacing-y: calc(var(--spacing) * 36);
+ * - border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
  */
-export const border_spacing_36 = () => `
-    --tw-border-spacing-x: calc(var(--spacing) * 36);
-    --tw-border-spacing-y: calc(var(--spacing) * 36);
-    border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
-  `;
+export const border_spacing_36 = () => `  --tw-border-spacing-x: calc(var(--spacing) * 36);
+  --tw-border-spacing-y: calc(var(--spacing) * 36);
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);`;

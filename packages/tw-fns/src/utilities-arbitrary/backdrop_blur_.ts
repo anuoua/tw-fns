@@ -1,1 +1,4 @@
-export const backdrop_blur_ = (arbitrary: string) => () => `backdrop-filter: blur(${arbitrary});`;
+/**
+ * - backdrop-filter: blur(${arbitrary});
+ */
+export const backdrop_blur_ = (arbitrary: string) => () => `  backdrop-filter: blur(${arbitrary});`;

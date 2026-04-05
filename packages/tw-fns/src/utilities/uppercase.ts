@@ -1,6 +1,4 @@
 /**
- * text-transform: uppercase;
+ * - text-transform: uppercase;
  */
-export const uppercase = () => `
-    text-transform: uppercase;
-  `;
+export const uppercase = () => `  text-transform: uppercase;`;

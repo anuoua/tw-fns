@@ -1,1 +1,4 @@
-export const scroll_pl_ = (arbitrary: string) => () => `scroll-padding-left: ${arbitrary};`;
+/**
+ * - scroll-padding-left: ${arbitrary};
+ */
+export const scroll_pl_ = (arbitrary: string) => () => `  scroll-padding-left: ${arbitrary};`;

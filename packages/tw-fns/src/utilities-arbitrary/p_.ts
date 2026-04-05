@@ -1,1 +1,4 @@
-export const p_ = (arbitrary: string) => () => `padding: ${arbitrary};`;
+/**
+ * - padding: ${arbitrary};
+ */
+export const p_ = (arbitrary: string) => () => `  padding: ${arbitrary};`;

@@ -1,6 +1,4 @@
 /**
- * cursor: wait;
+ * - cursor: wait;
  */
-export const cursor_wait = () => `
-    cursor: wait;
-  `;
+export const cursor_wait = () => `  cursor: wait;`;

@@ -1,1 +1,4 @@
-export const z_ = (arbitrary: string) => () => `z-index: ${arbitrary};`;
+/**
+ * - z-index: ${arbitrary};
+ */
+export const z_ = (arbitrary: string) => () => `  z-index: ${arbitrary};`;

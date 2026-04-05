@@ -1,6 +1,4 @@
 /**
- * bottom: calc(var(--spacing) * 11);
+ * - bottom: calc(var(--spacing) * 11);
  */
-export const bottom_11 = () => `
-    bottom: calc(var(--spacing) * 11);
-  `;
+export const bottom_11 = () => `  bottom: calc(var(--spacing) * 11);`;

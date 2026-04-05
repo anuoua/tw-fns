@@ -1,1 +1,4 @@
-export const flex_ = (arbitrary: string) => () => `flex: ${arbitrary};`;
+/**
+ * - flex: ${arbitrary};
+ */
+export const flex_ = (arbitrary: string) => () => `  flex: ${arbitrary};`;

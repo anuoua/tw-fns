@@ -1,6 +1,4 @@
 /**
- * bottom: -100%;
+ * - bottom: -100%;
  */
-export const _bottom_full = () => `
-    bottom: -100%;
-  `;
+export const _bottom_full = () => `  bottom: -100%;`;

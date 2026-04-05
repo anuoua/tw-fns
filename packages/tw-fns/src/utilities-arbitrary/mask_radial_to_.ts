@@ -1,1 +1,4 @@
-export const mask_radial_to_ = (arbitrary: string) => () => `mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent ${arbitrary});`;
+/**
+ * - mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent ${arbitrary});
+ */
+export const mask_radial_to_ = (arbitrary: string) => () => `  mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent ${arbitrary});`;

@@ -1,6 +1,4 @@
 /**
- * width: 100%;
+ * - width: 100%;
  */
-export const w_full = () => `
-    width: 100%;
-  `;
+export const w_full = () => `  width: 100%;`;

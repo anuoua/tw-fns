@@ -1,6 +1,4 @@
 /**
- * inset-inline-end: calc(var(--spacing) * -64);
+ * - inset-inline-end: calc(var(--spacing) * -64);
  */
-export const _end_64 = () => `
-    inset-inline-end: calc(var(--spacing) * -64);
-  `;
+export const _end_64 = () => `  inset-inline-end: calc(var(--spacing) * -64);`;

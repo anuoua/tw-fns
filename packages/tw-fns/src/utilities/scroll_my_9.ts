@@ -1,6 +1,4 @@
 /**
- * scroll-margin-block: calc(var(--spacing) * 9);
+ * - scroll-margin-block: calc(var(--spacing) * 9);
  */
-export const scroll_my_9 = () => `
-    scroll-margin-block: calc(var(--spacing) * 9);
-  `;
+export const scroll_my_9 = () => `  scroll-margin-block: calc(var(--spacing) * 9);`;

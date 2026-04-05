@@ -1,6 +1,4 @@
 /**
- * grid-column: auto;
+ * - grid-column: auto;
  */
-export const col_auto = () => `
-    grid-column: auto;
-  `;
+export const col_auto = () => `  grid-column: auto;`;

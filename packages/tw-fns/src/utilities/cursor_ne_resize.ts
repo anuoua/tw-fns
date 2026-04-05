@@ -1,6 +1,4 @@
 /**
- * cursor: ne-resize;
+ * - cursor: ne-resize;
  */
-export const cursor_ne_resize = () => `
-    cursor: ne-resize;
-  `;
+export const cursor_ne_resize = () => `  cursor: ne-resize;`;

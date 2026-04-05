@@ -1,18 +1,12 @@
 /**
- * mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
- *
- * mask-composite: intersect;
- *
- * --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
- *
- * --tw-mask-left: linear-gradient(to left, var(--tw-mask-left-from-color) var(--tw-mask-left-from-position), var(--tw-mask-left-to-color) var(--tw-mask-left-to-position));
- *
- * --tw-mask-left-from-color: var(--color-orange-950);
+ * - mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
+ * - mask-composite: intersect;
+ * - --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
+ * - --tw-mask-left: linear-gradient(to left, var(--tw-mask-left-from-color) var(--tw-mask-left-from-position), var(--tw-mask-left-to-color) var(--tw-mask-left-to-position));
+ * - --tw-mask-left-from-color: var(--color-orange-950);
  */
-export const mask_l_from_orange_950 = () => `
-    mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
-    mask-composite: intersect;
-    --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
-    --tw-mask-left: linear-gradient(to left, var(--tw-mask-left-from-color) var(--tw-mask-left-from-position), var(--tw-mask-left-to-color) var(--tw-mask-left-to-position));
-    --tw-mask-left-from-color: var(--color-orange-950);
-  `;
+export const mask_l_from_orange_950 = () => `  mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
+  mask-composite: intersect;
+  --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
+  --tw-mask-left: linear-gradient(to left, var(--tw-mask-left-from-color) var(--tw-mask-left-from-position), var(--tw-mask-left-to-color) var(--tw-mask-left-to-position));
+  --tw-mask-left-from-color: var(--color-orange-950);`;

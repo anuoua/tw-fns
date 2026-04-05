@@ -1,12 +1,8 @@
 /**
- * --tw-translate-x: calc(var(--spacing) * -2);
- *
- * --tw-translate-y: calc(var(--spacing) * -2);
- *
- * translate: var(--tw-translate-x) var(--tw-translate-y);
+ * - --tw-translate-x: calc(var(--spacing) * -2);
+ * - --tw-translate-y: calc(var(--spacing) * -2);
+ * - translate: var(--tw-translate-x) var(--tw-translate-y);
  */
-export const _translate_2 = () => `
-    --tw-translate-x: calc(var(--spacing) * -2);
-    --tw-translate-y: calc(var(--spacing) * -2);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  `;
+export const _translate_2 = () => `  --tw-translate-x: calc(var(--spacing) * -2);
+  --tw-translate-y: calc(var(--spacing) * -2);
+  translate: var(--tw-translate-x) var(--tw-translate-y);`;

@@ -1,6 +1,4 @@
 /**
- * fill: currentcolor;
+ * - fill: currentcolor;
  */
-export const fill_current = () => `
-    fill: currentcolor;
-  `;
+export const fill_current = () => `  fill: currentcolor;`;

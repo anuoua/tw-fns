@@ -1,1 +1,4 @@
-export const animate_ = (arbitrary: string) => () => `animation: ${arbitrary};`;
+/**
+ * - animation: ${arbitrary};
+ */
+export const animate_ = (arbitrary: string) => () => `  animation: ${arbitrary};`;

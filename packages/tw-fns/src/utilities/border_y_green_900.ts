@@ -1,6 +1,4 @@
 /**
- * border-block-color: var(--color-green-900);
+ * - border-block-color: var(--color-green-900);
  */
-export const border_y_green_900 = () => `
-    border-block-color: var(--color-green-900);
-  `;
+export const border_y_green_900 = () => `  border-block-color: var(--color-green-900);`;

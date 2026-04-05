@@ -1,3 +1,8 @@
-export const transition_ = (arbitrary: string) => () => `transition-property: ${arbitrary};
-transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
-transition-duration: var(--default-transition-duration); /* 150ms */`;
+/**
+ * - transition-property: ${arbitrary};
+ * - transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+ * - transition-duration: var(--default-transition-duration); /* 150ms */
+ */
+export const transition_ = (arbitrary: string) => () => `  transition-property: ${arbitrary};
+  transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+  transition-duration: var(--default-transition-duration); /* 150ms */`;

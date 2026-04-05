@@ -1,6 +1,4 @@
 /**
- * place-items: center;
+ * - place-items: center;
  */
-export const place_items_center = () => `
-    place-items: center;
-  `;
+export const place_items_center = () => `  place-items: center;`;

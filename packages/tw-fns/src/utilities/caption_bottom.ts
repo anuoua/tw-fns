@@ -1,6 +1,4 @@
 /**
- * caption-side: bottom;
+ * - caption-side: bottom;
  */
-export const caption_bottom = () => `
-    caption-side: bottom;
-  `;
+export const caption_bottom = () => `  caption-side: bottom;`;

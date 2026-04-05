@@ -1,6 +1,4 @@
 /**
- * border-right-color: var(--color-violet-200);
+ * - border-right-color: var(--color-violet-200);
  */
-export const border_r_violet_200 = () => `
-    border-right-color: var(--color-violet-200);
-  `;
+export const border_r_violet_200 = () => `  border-right-color: var(--color-violet-200);`;

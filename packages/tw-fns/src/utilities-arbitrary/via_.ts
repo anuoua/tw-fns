@@ -1,1 +1,4 @@
-export const via_ = (arbitrary: string) => () => `--tw-gradient-via: ${arbitrary};`;
+/**
+ * - --tw-gradient-via: ${arbitrary};
+ */
+export const via_ = (arbitrary: string) => () => `  --tw-gradient-via: ${arbitrary};`;

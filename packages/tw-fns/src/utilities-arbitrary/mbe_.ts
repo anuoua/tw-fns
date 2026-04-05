@@ -1,1 +1,4 @@
-export const mbe_ = (arbitrary: string) => () => `margin-block-end: ${arbitrary};`;
+/**
+ * - margin-block-end: ${arbitrary};
+ */
+export const mbe_ = (arbitrary: string) => () => `  margin-block-end: ${arbitrary};`;

@@ -1,1 +1,4 @@
-export const inset_bs_ = (arbitrary: string) => () => `inset-block-start: ${arbitrary};`;
+/**
+ * - inset-block-start: ${arbitrary};
+ */
+export const inset_bs_ = (arbitrary: string) => () => `  inset-block-start: ${arbitrary};`;

@@ -1,6 +1,4 @@
 /**
- * justify-content: baseline;
+ * - justify-content: baseline;
  */
-export const justify_baseline = () => `
-    justify-content: baseline;
-  `;
+export const justify_baseline = () => `  justify-content: baseline;`;

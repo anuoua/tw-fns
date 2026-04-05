@@ -1,1 +1,4 @@
-export const object_ = (arbitrary: string) => () => `object-position: ${arbitrary};`;
+/**
+ * - object-position: ${arbitrary};
+ */
+export const object_ = (arbitrary: string) => () => `  object-position: ${arbitrary};`;

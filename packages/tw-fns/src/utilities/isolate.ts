@@ -1,6 +1,4 @@
 /**
- * isolation: isolate;
+ * - isolation: isolate;
  */
-export const isolate = () => `
-    isolation: isolate;
-  `;
+export const isolate = () => `  isolation: isolate;`;

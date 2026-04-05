@@ -1,1 +1,4 @@
-export const scroll_pbe_ = (arbitrary: string) => () => `scroll-padding-block-end: ${arbitrary};`;
+/**
+ * - scroll-padding-block-end: ${arbitrary};
+ */
+export const scroll_pbe_ = (arbitrary: string) => () => `  scroll-padding-block-end: ${arbitrary};`;

@@ -1,6 +1,4 @@
 /**
- * outline-color: currentcolor;
+ * - outline-color: currentcolor;
  */
-export const outline_current = () => `
-    outline-color: currentcolor;
-  `;
+export const outline_current = () => `  outline-color: currentcolor;`;

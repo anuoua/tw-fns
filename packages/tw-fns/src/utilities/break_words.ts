@@ -1,6 +1,4 @@
 /**
- * overflow-wrap: break-word;
+ * - overflow-wrap: break-word;
  */
-export const break_words = () => `
-    overflow-wrap: break-word;
-  `;
+export const break_words = () => `  overflow-wrap: break-word;`;

@@ -1,6 +1,4 @@
 /**
- * border-inline-start-color: var(--color-neutral-800);
+ * - border-inline-start-color: var(--color-neutral-800);
  */
-export const border_s_neutral_800 = () => `
-    border-inline-start-color: var(--color-neutral-800);
-  `;
+export const border_s_neutral_800 = () => `  border-inline-start-color: var(--color-neutral-800);`;

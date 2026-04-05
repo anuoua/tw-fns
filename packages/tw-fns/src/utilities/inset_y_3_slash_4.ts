@@ -1,6 +1,4 @@
 /**
- * inset-block: calc(3 / 4 * 100%);
+ * - inset-block: calc(3 / 4 * 100%);
  */
-export const inset_y_3_slash_4 = () => `
-    inset-block: calc(3 / 4 * 100%);
-  `;
+export const inset_y_3_slash_4 = () => `  inset-block: calc(3 / 4 * 100%);`;

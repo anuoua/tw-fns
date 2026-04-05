@@ -1,1 +1,4 @@
-export const perspective_ = (arbitrary: string) => () => `perspective: ${arbitrary};`;
+/**
+ * - perspective: ${arbitrary};
+ */
+export const perspective_ = (arbitrary: string) => () => `  perspective: ${arbitrary};`;

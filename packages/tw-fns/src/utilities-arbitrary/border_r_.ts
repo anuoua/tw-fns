@@ -1,1 +1,4 @@
-export const border_r_ = (arbitrary: string) => () => `border-right-color: ${arbitrary};`;
+/**
+ * - border-right-color: ${arbitrary};
+ */
+export const border_r_ = (arbitrary: string) => () => `  border-right-color: ${arbitrary};`;

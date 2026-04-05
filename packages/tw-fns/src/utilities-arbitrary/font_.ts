@@ -1,1 +1,4 @@
-export const font_ = (arbitrary: string) => () => `font-weight: ${arbitrary};`;
+/**
+ * - font-weight: ${arbitrary};
+ */
+export const font_ = (arbitrary: string) => () => `  font-weight: ${arbitrary};`;

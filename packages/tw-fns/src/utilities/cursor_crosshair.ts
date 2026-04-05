@@ -1,6 +1,4 @@
 /**
- * cursor: crosshair;
+ * - cursor: crosshair;
  */
-export const cursor_crosshair = () => `
-    cursor: crosshair;
-  `;
+export const cursor_crosshair = () => `  cursor: crosshair;`;

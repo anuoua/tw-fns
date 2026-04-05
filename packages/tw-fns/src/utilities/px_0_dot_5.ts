@@ -1,6 +1,4 @@
 /**
- * padding-inline: calc(var(--spacing) * 0.5);
+ * - padding-inline: calc(var(--spacing) * 0.5);
  */
-export const px_0_dot_5 = () => `
-    padding-inline: calc(var(--spacing) * 0.5);
-  `;
+export const px_0_dot_5 = () => `  padding-inline: calc(var(--spacing) * 0.5);`;

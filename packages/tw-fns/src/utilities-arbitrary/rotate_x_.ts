@@ -1,1 +1,4 @@
-export const rotate_x_ = (arbitrary: string) => () => `transform: rotateX(${arbitrary}) var(--tw-rotate-y);`;
+/**
+ * - transform: rotateX(${arbitrary}) var(--tw-rotate-y);
+ */
+export const rotate_x_ = (arbitrary: string) => () => `  transform: rotateX(${arbitrary}) var(--tw-rotate-y);`;

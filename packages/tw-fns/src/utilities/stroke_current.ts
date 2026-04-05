@@ -1,6 +1,4 @@
 /**
- * stroke: currentcolor;
+ * - stroke: currentcolor;
  */
-export const stroke_current = () => `
-    stroke: currentcolor;
-  `;
+export const stroke_current = () => `  stroke: currentcolor;`;

@@ -1,6 +1,4 @@
 /**
- * inset-inline: calc(calc(1 / 4 * 100%) * -1);
+ * - inset-inline: calc(calc(1 / 4 * 100%) * -1);
  */
-export const _inset_x_1_slash_4 = () => `
-    inset-inline: calc(calc(1 / 4 * 100%) * -1);
-  `;
+export const _inset_x_1_slash_4 = () => `  inset-inline: calc(calc(1 / 4 * 100%) * -1);`;

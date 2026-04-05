@@ -1,6 +1,4 @@
 /**
- * color-scheme: dark;
+ * - color-scheme: dark;
  */
-export const scheme_dark = () => `
-    color-scheme: dark;
-  `;
+export const scheme_dark = () => `  color-scheme: dark;`;

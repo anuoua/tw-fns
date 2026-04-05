@@ -1,1 +1,4 @@
-export const pe_ = (arbitrary: string) => () => `padding-inline-end: ${arbitrary};`;
+/**
+ * - padding-inline-end: ${arbitrary};
+ */
+export const pe_ = (arbitrary: string) => () => `  padding-inline-end: ${arbitrary};`;

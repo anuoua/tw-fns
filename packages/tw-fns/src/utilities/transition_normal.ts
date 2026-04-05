@@ -1,6 +1,4 @@
 /**
- * transition-behavior: normal;
+ * - transition-behavior: normal;
  */
-export const transition_normal = () => `
-    transition-behavior: normal;
-  `;
+export const transition_normal = () => `  transition-behavior: normal;`;

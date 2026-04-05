@@ -1,1 +1,4 @@
-export const stroke_ = (arbitrary: string) => () => `stroke-width: ${arbitrary};`;
+/**
+ * - stroke-width: ${arbitrary};
+ */
+export const stroke_ = (arbitrary: string) => () => `  stroke-width: ${arbitrary};`;

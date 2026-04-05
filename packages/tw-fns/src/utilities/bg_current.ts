@@ -1,6 +1,4 @@
 /**
- * background-color: currentcolor;
+ * - background-color: currentcolor;
  */
-export const bg_current = () => `
-    background-color: currentcolor;
-  `;
+export const bg_current = () => `  background-color: currentcolor;`;

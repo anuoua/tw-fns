@@ -1,6 +1,4 @@
 /**
- * font-style: normal;
+ * - font-style: normal;
  */
-export const not_italic = () => `
-    font-style: normal;
-  `;
+export const not_italic = () => `  font-style: normal;`;

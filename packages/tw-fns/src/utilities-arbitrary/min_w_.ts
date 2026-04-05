@@ -1,1 +1,4 @@
-export const min_w_ = (arbitrary: string) => () => `min-width: ${arbitrary};`;
+/**
+ * - min-width: ${arbitrary};
+ */
+export const min_w_ = (arbitrary: string) => () => `  min-width: ${arbitrary};`;

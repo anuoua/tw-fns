@@ -1,6 +1,4 @@
 /**
- * position: fixed;
+ * - position: fixed;
  */
-export const fixed = () => `
-    position: fixed;
-  `;
+export const fixed = () => `  position: fixed;`;

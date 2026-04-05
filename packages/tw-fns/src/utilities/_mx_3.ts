@@ -1,6 +1,4 @@
 /**
- * margin-inline: calc(var(--spacing) * -3);
+ * - margin-inline: calc(var(--spacing) * -3);
  */
-export const _mx_3 = () => `
-    margin-inline: calc(var(--spacing) * -3);
-  `;
+export const _mx_3 = () => `  margin-inline: calc(var(--spacing) * -3);`;

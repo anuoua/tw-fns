@@ -1,6 +1,4 @@
 /**
- * scale: none;
+ * - scale: none;
  */
-export const scale_none = () => `
-    scale: none;
-  `;
+export const scale_none = () => `  scale: none;`;

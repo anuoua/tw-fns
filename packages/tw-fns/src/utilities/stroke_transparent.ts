@@ -1,6 +1,4 @@
 /**
- * stroke: transparent;
+ * - stroke: transparent;
  */
-export const stroke_transparent = () => `
-    stroke: transparent;
-  `;
+export const stroke_transparent = () => `  stroke: transparent;`;

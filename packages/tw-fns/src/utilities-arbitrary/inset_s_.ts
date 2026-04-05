@@ -1,1 +1,4 @@
-export const inset_s_ = (arbitrary: string) => () => `inset-inline-start: ${arbitrary};`;
+/**
+ * - inset-inline-start: ${arbitrary};
+ */
+export const inset_s_ = (arbitrary: string) => () => `  inset-inline-start: ${arbitrary};`;

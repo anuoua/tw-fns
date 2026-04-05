@@ -1,6 +1,4 @@
 /**
- * display: contents;
+ * - display: contents;
  */
-export const contents = () => `
-    display: contents;
-  `;
+export const contents = () => `  display: contents;`;

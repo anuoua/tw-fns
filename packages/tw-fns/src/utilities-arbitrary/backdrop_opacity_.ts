@@ -1,1 +1,4 @@
-export const backdrop_opacity_ = (arbitrary: string) => () => `backdrop-filter: opacity(${arbitrary});`;
+/**
+ * - backdrop-filter: opacity(${arbitrary});
+ */
+export const backdrop_opacity_ = (arbitrary: string) => () => `  backdrop-filter: opacity(${arbitrary});`;

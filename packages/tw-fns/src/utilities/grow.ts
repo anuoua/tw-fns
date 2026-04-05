@@ -1,6 +1,4 @@
 /**
- * flex-grow: 1;
+ * - flex-grow: 1;
  */
-export const grow = () => `
-    flex-grow: 1;
-  `;
+export const grow = () => `  flex-grow: 1;`;

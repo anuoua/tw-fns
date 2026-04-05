@@ -1,6 +1,4 @@
 /**
- * flex-direction: column;
+ * - flex-direction: column;
  */
-export const flex_col = () => `
-    flex-direction: column;
-  `;
+export const flex_col = () => `  flex-direction: column;`;

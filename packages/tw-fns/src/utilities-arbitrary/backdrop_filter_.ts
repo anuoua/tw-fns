@@ -1,1 +1,4 @@
-export const backdrop_filter_ = (arbitrary: string) => () => `backdrop-filter: ${arbitrary};`;
+/**
+ * - backdrop-filter: ${arbitrary};
+ */
+export const backdrop_filter_ = (arbitrary: string) => () => `  backdrop-filter: ${arbitrary};`;

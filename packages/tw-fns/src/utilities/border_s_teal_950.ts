@@ -1,6 +1,4 @@
 /**
- * border-inline-start-color: var(--color-teal-950);
+ * - border-inline-start-color: var(--color-teal-950);
  */
-export const border_s_teal_950 = () => `
-    border-inline-start-color: var(--color-teal-950);
-  `;
+export const border_s_teal_950 = () => `  border-inline-start-color: var(--color-teal-950);`;

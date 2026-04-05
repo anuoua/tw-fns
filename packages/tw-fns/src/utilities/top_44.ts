@@ -1,6 +1,4 @@
 /**
- * top: calc(var(--spacing) * 44);
+ * - top: calc(var(--spacing) * 44);
  */
-export const top_44 = () => `
-    top: calc(var(--spacing) * 44);
-  `;
+export const top_44 = () => `  top: calc(var(--spacing) * 44);`;
