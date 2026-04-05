@@ -1,3 +1,6 @@
-export const not_contrast_less = (...fns: (() => string)[]) => () => `@media not (prefers-contrast: less) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media not (prefers-contrast: less) {  }
+ */
+export const not_contrast_less = (...fns: (() => string)[]) => () => `  @media not (prefers-contrast: less) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

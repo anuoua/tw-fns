@@ -1,3 +1,6 @@
-export const not_motion_safe = (...fns: (() => string)[]) => () => `@media not (prefers-reduced-motion: no-preference) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media not (prefers-reduced-motion: no-preference) {  }
+ */
+export const not_motion_safe = (...fns: (() => string)[]) => () => `  @media not (prefers-reduced-motion: no-preference) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

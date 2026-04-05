@@ -1,3 +1,6 @@
-export const in_only = (...fns: (() => string)[]) => () => `:where(*:only-child) & {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - :where(*:only-child) & {  }
+ */
+export const in_only = (...fns: (() => string)[]) => () => `  :where(*:only-child) & {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

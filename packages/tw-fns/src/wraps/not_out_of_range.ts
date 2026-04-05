@@ -1,3 +1,6 @@
-export const not_out_of_range = (...fns: (() => string)[]) => () => `&:not(*:out-of-range) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - &:not(*:out-of-range) {  }
+ */
+export const not_out_of_range = (...fns: (() => string)[]) => () => `  &:not(*:out-of-range) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

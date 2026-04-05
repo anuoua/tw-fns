@@ -1,3 +1,6 @@
-export const dark = (...fns: (() => string)[]) => () => `@media (prefers-color-scheme: dark) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media (prefers-color-scheme: dark) {  }
+ */
+export const dark = (...fns: (() => string)[]) => () => `  @media (prefers-color-scheme: dark) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

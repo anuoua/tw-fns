@@ -1,3 +1,6 @@
-export const focus_within = (...fns: (() => string)[]) => () => `&:focus-within {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - &:focus-within {  }
+ */
+export const focus_within = (...fns: (() => string)[]) => () => `  &:focus-within {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

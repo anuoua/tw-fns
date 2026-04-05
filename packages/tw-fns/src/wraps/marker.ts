@@ -1,3 +1,6 @@
-export const marker = (...fns: (() => string)[]) => () => `& *::marker, &::marker, & *::-webkit-details-marker, &::-webkit-details-marker {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - & *::marker, &::marker, & *::-webkit-details-marker, &::-webkit-details-marker {  }
+ */
+export const marker = (...fns: (() => string)[]) => () => `  & *::marker, &::marker, & *::-webkit-details-marker, &::-webkit-details-marker {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

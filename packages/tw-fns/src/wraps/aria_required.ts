@@ -1,3 +1,6 @@
-export const aria_required = (...fns: (() => string)[]) => () => `&[aria-required="true"] {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - &[aria-required="true"] {  }
+ */
+export const aria_required = (...fns: (() => string)[]) => () => `  &[aria-required="true"] {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

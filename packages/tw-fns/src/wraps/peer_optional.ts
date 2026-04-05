@@ -1,3 +1,6 @@
-export const peer_optional = (...fns: (() => string)[]) => () => `&:is(:where([aria-peer]):optional ~ *) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - &:is(:where(.peer):optional ~ *) {  }
+ */
+export const peer_optional = (...fns: (() => string)[]) => () => `  &:is(:where([aria-peer]):optional ~ *) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

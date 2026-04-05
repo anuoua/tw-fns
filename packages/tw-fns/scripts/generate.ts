@@ -255,11 +255,23 @@ for (const item of wrapArr) {
 
   const contenReplaceed = content
     .replace(":where(.peer)", `:where([aria-peer])`)
-    .replace(":where(.group)", `:where([aria-group])`);
+    .replace(":where(.group)", `:where([aria-group])`)
+    .split("\n")
+    .map((i: string) => `  ${i}`)
+    .join("\n");
+
+  const descContent = /\}$/.test(item.detail)
+    ? item.detail.replace(/\}$/, `{  }}`)
+    : item.detail + ` {  }`;
+
+  const styles: string[] = descContent.split("\n");
 
   writeFileSync(
     `./src/wraps/${name}.ts`,
-    `export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\`;\n`,
+    `/**
+${styles.map((i) => " * - " + i).join("\n")}
+ */
+export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\`;\n`,
     "utf-8",
   );
 
@@ -267,11 +279,23 @@ for (const item of wrapArr) {
   if (content.includes(":where(.peer)") || content.includes(":where(.group)")) {
     const contenReplaceed2 = content
       .replace(":where(.peer)", `:where([aria-peer="\${name}"])`)
-      .replace(":where(.group)", `:where([aria-group="\${name}"])`);
+      .replace(":where(.group)", `:where([aria-group="\${name}"])`)
+      .split("\n")
+      .map((i: string) => `  ${i}`)
+      .join("\n");
+
+    const descContent = /\}$/.test(item.detail)
+      ? item.detail.replace(/\}$/, `{  }}`)
+      : item.detail + ` {  }`;
+
+    const styles: string[] = descContent.split("\n");
 
     writeFileSync(
       `./src/wraps/${name}_by.ts`,
-      `export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${contenReplaceed2}\`;\n`,
+      `/**
+${styles.map((i) => " * - " + i).join("\n")}
+ */
+export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${contenReplaceed2}\`;\n`,
       "utf-8",
     );
   }

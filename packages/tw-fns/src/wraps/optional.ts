@@ -1,3 +1,6 @@
-export const optional = (...fns: (() => string)[]) => () => `&:optional {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - &:optional {  }
+ */
+export const optional = (...fns: (() => string)[]) => () => `  &:optional {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

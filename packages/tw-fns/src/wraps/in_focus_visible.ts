@@ -1,3 +1,6 @@
-export const in_focus_visible = (...fns: (() => string)[]) => () => `:where(*:focus-visible) & {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - :where(*:focus-visible) & {  }
+ */
+export const in_focus_visible = (...fns: (() => string)[]) => () => `  :where(*:focus-visible) & {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

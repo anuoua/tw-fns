@@ -1,3 +1,6 @@
-export const pointer_coarse = (...fns: (() => string)[]) => () => `@media (pointer: coarse) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media (pointer: coarse) {  }
+ */
+export const pointer_coarse = (...fns: (() => string)[]) => () => `  @media (pointer: coarse) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

@@ -1,3 +1,6 @@
-export const forced_colors = (...fns: (() => string)[]) => () => `@media (forced-colors: active) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media (forced-colors: active) {  }
+ */
+export const forced_colors = (...fns: (() => string)[]) => () => `  @media (forced-colors: active) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

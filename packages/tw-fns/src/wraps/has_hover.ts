@@ -1,3 +1,6 @@
-export const has_hover = (...fns: (() => string)[]) => () => `@media (hover: hover) { &:has(*:hover) {
-${fns.map((fn) => fn()).join("\n")}
-}}`;
+/**
+ * - @media (hover: hover) { &:has(*:hover) {  }}
+ */
+export const has_hover = (...fns: (() => string)[]) => () => `  @media (hover: hover) { &:has(*:hover) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }}`;

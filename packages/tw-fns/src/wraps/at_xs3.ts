@@ -1,3 +1,6 @@
-export const at_xs3 = (...fns: (() => string)[]) => () => `@container (width >= 16rem) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @container (width >= 16rem) {  }
+ */
+export const at_xs3 = (...fns: (() => string)[]) => () => `  @container (width >= 16rem) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

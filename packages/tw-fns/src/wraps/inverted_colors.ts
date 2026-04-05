@@ -1,3 +1,6 @@
-export const inverted_colors = (...fns: (() => string)[]) => () => `@media (inverted-colors: inverted) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media (inverted-colors: inverted) {  }
+ */
+export const inverted_colors = (...fns: (() => string)[]) => () => `  @media (inverted-colors: inverted) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

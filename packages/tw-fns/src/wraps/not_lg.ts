@@ -1,3 +1,6 @@
-export const not_lg = (...fns: (() => string)[]) => () => `@media not (width >= 64rem) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - @media not (width >= 64rem) {  }
+ */
+export const not_lg = (...fns: (() => string)[]) => () => `  @media not (width >= 64rem) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

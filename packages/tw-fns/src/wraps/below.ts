@@ -1,3 +1,6 @@
-export const below = (...fns: (() => string)[]) => () => `:is(& *) {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - :is(& *) {  }
+ */
+export const below = (...fns: (() => string)[]) => () => `  :is(& *) {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;

@@ -1,3 +1,6 @@
-export const selection = (...fns: (() => string)[]) => () => `& *::selection, &::selection {
-${fns.map((fn) => fn()).join("\n")}
-}`;
+/**
+ * - & *::selection, &::selection {  }
+ */
+export const selection = (...fns: (() => string)[]) => () => `  & *::selection, &::selection {
+  ${fns.map((fn) => fn()).join("\n")}
+  }`;
