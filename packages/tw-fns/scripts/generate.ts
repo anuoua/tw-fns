@@ -9,6 +9,13 @@ import {
 } from "node:fs";
 import { $ } from "zx";
 
+const getJsdoc = (wrapContent: string) => {
+  const styles = wrapContent.replaceAll("*/", "*\\/").split("\n");
+  return `/**
+${styles.map((i) => " * - " + i).join("\n")}
+ */`;
+};
+
 const indent = (str: string) =>
   str
     .split("\n")
@@ -58,29 +65,22 @@ const wrapArbitraryArr = all.filter(
 for (const item of wrapArbitraryArr) {
   const functionName = getNameFromLabel(item.label);
 
-  const getJsdoc = (wrapContent: string) => {
-    const styles = `${wrapContent} {  }`.split("\n");
-    return `/**
-${styles.map((i) => " * - " + i).join("\n")}
- */`;
-  };
-
   const getFunctionBody = (wrapContent: string) =>
     indent(`${wrapContent} {\n${fns}\n}`);
 
   const withoutTemplate = (functionName: string, wrapContent: string) =>
-    `${getJsdoc(wrapContent)}
+    `${getJsdoc(`${wrapContent} {  }`)}
 export const ${functionName} = (...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
 
   const nameTemplate = (functionName: string, wrapContent: string) =>
-    `${getJsdoc(wrapContent)}
+    `${getJsdoc(`${wrapContent} {  }`)}
 export const ${functionName} = (name: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
 
   const arbitraryTemplate = (functionName: string, wrapContent: string) =>
-    `${getJsdoc(wrapContent)}
+    `${getJsdoc(`${wrapContent} {  }`)}
 export const ${functionName} = (arbitrary: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
   const namedTemplate = (functionName: string, wrapContent: string) =>
-    `${getJsdoc(wrapContent)}
+    `${getJsdoc(`${wrapContent} {  }`)}
 export const ${functionName} = (arbitrary: string, name: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
 
   const map: Record<string, any> = {
@@ -275,23 +275,16 @@ for (const item of wrapArr) {
 
   const contenReplaceed = content
     .replace(":where(.peer)", `:where([aria-peer])`)
-    .replace(":where(.group)", `:where([aria-group])`)
-    .split("\n")
-    .map((i: string) => `  ${i}`)
-    .join("\n");
+    .replace(":where(.group)", `:where([aria-group])`);
 
   const descContent = /\}$/.test(item.detail)
     ? item.detail.replace(/\}$/, `{  }}`)
     : item.detail + ` {  }`;
 
-  const styles: string[] = descContent.split("\n");
-
   writeFileSync(
     `./src/wraps/${name}.ts`,
-    `/**
-${styles.map((i) => " * - " + i).join("\n")}
- */
-export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\`;\n`,
+    `${getJsdoc(descContent as string)}
+export const ${name} = (...fns: (() => string)[]) => () => \`${indent(contenReplaceed)}\`;\n`,
     "utf-8",
   );
 
@@ -299,23 +292,16 @@ export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\
   if (content.includes(":where(.peer)") || content.includes(":where(.group)")) {
     const contenReplaceed2 = content
       .replace(":where(.peer)", `:where([aria-peer="\${name}"])`)
-      .replace(":where(.group)", `:where([aria-group="\${name}"])`)
-      .split("\n")
-      .map((i: string) => `  ${i}`)
-      .join("\n");
+      .replace(":where(.group)", `:where([aria-group="\${name}"])`);
 
     const descContent = /\}$/.test(item.detail)
       ? item.detail.replace(/\}$/, `{  }}`)
       : item.detail + ` {  }`;
 
-    const styles: string[] = descContent.split("\n");
-
     writeFileSync(
       `./src/wraps/${name}_by.ts`,
-      `/**
-${styles.map((i) => " * - " + i).join("\n")}
- */
-export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${contenReplaceed2}\`;\n`,
+      `${getJsdoc(descContent)}
+export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${indent(contenReplaceed2)}\`;\n`,
       "utf-8",
     );
   }
@@ -372,19 +358,17 @@ for (const item of res) {
   if (!item[2]) throw new Error("css is empty");
 
   const className = item[1].trim();
-  const css = item[2].trim();
-
-  const styles = css
+  const css = item[2]
+    .trim()
     .split("\n")
     .filter((line) => line.trim() !== "")
-    .map((line) => line.trim());
+    .map((line) => line.trim())
+    .join("\n");
 
   const functionName = getNameFromLabel(className);
   const fileName = functionName + ".ts";
-  const content = `/**
-${styles.map((i) => " * - " + i).join("\n")}
- */
-export const ${functionName} = () => \`${styles.map((i) => "  " + i).join("\n")}\`;
+  const content = `${getJsdoc(css)}
+export const ${functionName} = () => \`${indent(css)}\`;
 `;
 
   writeFileSync(`./src/utilities/${fileName}`, content, "utf-8");
@@ -408,16 +392,12 @@ for (const item of classesArbitrary) {
   if (!arbitraryPlaceholder) {
     throw new Error("classesArbitrary 匹配失败: " + item.label);
   }
-  const styles = item.desc
-    .replace(arbitraryPlaceholder, "\${arbitrary}")
-    .split("\n");
+  const css = item.desc.replace(arbitraryPlaceholder, "\${arbitrary}");
 
   writeFileSync(
     `./src/utilities-arbitrary/${name}.ts`,
-    `/**
-${styles.map((i) => " * - " + i).join("\n")}
- */
-export const ${name} = (arbitrary: string) => () => \`${styles.map((i) => `  ${i}`).join("\n")}\`;\n`,
+    `${getJsdoc(css)}
+export const ${name} = (arbitrary: string) => () => \`${indent(css)}\`;\n`,
     "utf-8",
   );
 }
