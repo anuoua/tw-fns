@@ -1,3 +1,3 @@
-export const peer = (arbitrary: string, ...fns: (() => string)[]) => () => `&:is(:where([aria-peer])${arbitrary} ~ *) {
+export const peer = (...fns: (() => string)[]) => () => `&:is(:where([aria-peer]) ~ *) {
 ${fns.map((fn) => fn()).join("\n")}
 }`;

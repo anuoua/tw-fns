@@ -52,10 +52,16 @@ const wrapArbitraryArr = all.filter(
 for (const item of wrapArbitraryArr) {
   const functionName = getNameFromLabel(item.label);
 
+  const withoutTemplate = (functionName: string, functionContent: string) =>
+    `export const ${functionName} = (...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
+
+  const nameTemplate = (functionName: string, functionContent: string) =>
+    `export const ${functionName} = (name: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
+
   const arbitraryTemplate = (functionName: string, functionContent: string) =>
     `export const ${functionName} = (arbitrary: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
-  const nameTemplate = (functionName: string, functionContent: string) =>
-    `export const ${functionName}_by = (name: string) => (arbitrary: string, ...fns: (() => string)[]) => \`${functionContent}\`;\n`;
+  const namedTemplate = (functionName: string, functionContent: string) =>
+    `export const ${functionName} = (arbitrary: string, name: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
 
   const map: Record<string, any> = {
     "not-[]:": {
@@ -128,7 +134,7 @@ for (const item of wrapArbitraryArr) {
       arbitrary: {
         content: `@container (width < \${arbitrary}) {\n${fns}\n}`,
       },
-      name: {
+      arbitraryName: {
         content: `@container \${name} (width < \${arbitrary}) {\n${fns}\n}`,
       },
     },
@@ -136,50 +142,102 @@ for (const item of wrapArbitraryArr) {
       arbitrary: {
         content: `@container (width >= \${arbitrary}) {\n${fns}\n}`,
       },
-      name: {
+      arbitraryName: {
         content: `@container \${name} (width >= \${arbitrary}) {\n${fns}\n}`,
       },
     },
     "group-[]:": {
-      arbitrary: {
-        content: `&:is(:where([aria-group}]):is(\${arbitrary}) *) {\n${fns}\n}`,
+      without: {
+        content: `&:is(:where([aria-group]) *) {\n${fns}\n}`,
       },
       name: {
+        content: `&:is(:where([aria-group="\${name}"]) *) {\n${fns}\n}`,
+      },
+      arbitrary: {
+        content: `&:is(:where([aria-group]):is(\${arbitrary}) *) {\n${fns}\n}`,
+      },
+      arbitraryName: {
         content: `&:is(:where([aria-group="\${name}"]):is(\${arbitrary}) *) {\n${fns}\n}`,
       },
     },
     "peer-[]:": {
-      arbitrary: {
-        content: `&:is(:where([aria-peer])\${arbitrary} ~ *) {\n${fns}\n}`,
+      without: {
+        content: `&:is(:where([aria-peer]) ~ *) {\n${fns}\n}`,
       },
       name: {
-        content: `&:is(:where([aria-peer="\${name}"])\${arbitrary} ~ *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-peer="\${name}"]) ~ *) {\n${fns}\n}`,
+      },
+      arbitrary: {
+        content: `&:is(:where([aria-peer]):is(\${arbitrary}) ~ *) {\n${fns}\n}`,
+      },
+      arbitraryName: {
+        content: `&:is(:where([aria-peer="\${name}"]):is(\${arbitrary}) ~ *) {\n${fns}\n}`,
       },
     },
   };
 
-  if (map[item.label]) {
-    const arbitraryText = map[item.label].arbitrary
-      ? arbitraryTemplate(functionName, map[item.label].arbitrary.content)
-      : "";
+  const templateData = map[item.label];
 
-    arbitraryText &&
-      writeFileSync(
-        `./src/wraps-arbitrary/${functionName}.ts`,
-        arbitraryText,
-        "utf-8",
-      );
+  if (templateData) {
+    const hasName = !!templateData.name;
 
-    const nameText = map[item.label].name
-      ? nameTemplate(functionName, map[item.label].name.content)
-      : "";
+    // without
+    {
+      const withoutText = templateData.without
+        ? withoutTemplate(functionName, templateData.without.content)
+        : "";
 
-    nameText &&
-      writeFileSync(
-        `./src/wraps-arbitrary/${functionName}_by.ts`,
-        nameText,
-        "utf-8",
-      );
+      withoutText &&
+        writeFileSync(
+          `./src/wraps-arbitrary/${functionName}.ts`,
+          withoutText,
+          "utf-8",
+        );
+    }
+
+    // name
+    {
+      const fnName = `${functionName}_by`;
+
+      const nameText = templateData.name
+        ? nameTemplate(fnName, templateData.name.content)
+        : "";
+
+      nameText &&
+        writeFileSync(`./src/wraps-arbitrary/${fnName}.ts`, nameText, "utf-8");
+    }
+
+    // arbitrary
+    {
+      const fnName = `${functionName}${hasName ? "_is" : ""}`;
+
+      const arbitraryText = templateData.arbitrary
+        ? arbitraryTemplate(fnName, templateData.arbitrary.content)
+        : "";
+
+      arbitraryText &&
+        writeFileSync(
+          `./src/wraps-arbitrary/${fnName}.ts`,
+          arbitraryText,
+          "utf-8",
+        );
+    }
+
+    // arbitraryName
+    {
+      const fnName = `${functionName}_is_by`;
+
+      const arbitraryNameText = templateData.arbitraryName
+        ? namedTemplate(fnName, templateData.arbitraryName.content)
+        : "";
+
+      arbitraryNameText &&
+        writeFileSync(
+          `./src/wraps-arbitrary/${fnName}.ts`,
+          arbitraryNameText,
+          "utf-8",
+        );
+    }
   } else {
     console.log("未处理的 wrap:", item.label);
   }
@@ -204,6 +262,19 @@ for (const item of wrapArr) {
     `export const ${name} = (...fns: (() => string)[]) => () => \`${contenReplaceed}\`;\n`,
     "utf-8",
   );
+
+  // named peer or group
+  if (content.includes(":where(.peer)") || content.includes(":where(.group)")) {
+    const contenReplaceed2 = content
+      .replace(":where(.peer)", `:where([aria-peer="\${name}"])`)
+      .replace(":where(.group)", `:where([aria-group="\${name}"])`);
+
+    writeFileSync(
+      `./src/wraps/${name}_by.ts`,
+      `export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${contenReplaceed2}\`;\n`,
+      "utf-8",
+    );
+  }
 }
 
 rmSync("./src/utilities-arbitrary", { recursive: true, force: true });
