@@ -9,6 +9,12 @@ import {
 } from "node:fs";
 import { $ } from "zx";
 
+const indent = (str: string) =>
+  str
+    .split("\n")
+    .map((line) => `  ${line}`)
+    .join("\n");
+
 const getNameFromLabel = (label: string) => {
   return (
     label
@@ -52,126 +58,140 @@ const wrapArbitraryArr = all.filter(
 for (const item of wrapArbitraryArr) {
   const functionName = getNameFromLabel(item.label);
 
-  const withoutTemplate = (functionName: string, functionContent: string) =>
-    `export const ${functionName} = (...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
+  const getJsdoc = (wrapContent: string) => {
+    const styles = `${wrapContent} {  }`.split("\n");
+    return `/**
+${styles.map((i) => " * - " + i).join("\n")}
+ */`;
+  };
 
-  const nameTemplate = (functionName: string, functionContent: string) =>
-    `export const ${functionName} = (name: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
+  const getFunctionBody = (wrapContent: string) =>
+    indent(`${wrapContent} {\n${fns}\n}`);
 
-  const arbitraryTemplate = (functionName: string, functionContent: string) =>
-    `export const ${functionName} = (arbitrary: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
-  const namedTemplate = (functionName: string, functionContent: string) =>
-    `export const ${functionName} = (arbitrary: string, name: string, ...fns: (() => string)[]) => () => \`${functionContent}\`;\n`;
+  const withoutTemplate = (functionName: string, wrapContent: string) =>
+    `${getJsdoc(wrapContent)}
+export const ${functionName} = (...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
+
+  const nameTemplate = (functionName: string, wrapContent: string) =>
+    `${getJsdoc(wrapContent)}
+export const ${functionName} = (name: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
+
+  const arbitraryTemplate = (functionName: string, wrapContent: string) =>
+    `${getJsdoc(wrapContent)}
+export const ${functionName} = (arbitrary: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
+  const namedTemplate = (functionName: string, wrapContent: string) =>
+    `${getJsdoc(wrapContent)}
+export const ${functionName} = (arbitrary: string, name: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
 
   const map: Record<string, any> = {
     "not-[]:": {
       arbitrary: {
-        content: `&:not(\${arbitrary}) {\n${fns}\n}`,
+        content: `&:not(\${arbitrary})`,
       },
     },
     "@[]:": {
       arbitrary: {
-        content: `@container (width >= \${arbitrary}) {\n${fns}\n}`,
+        content: `@container (width >= \${arbitrary})`,
       },
     },
     "aria-[]:": {
       arbitrary: {
-        content: `&[aria-\${arbitrary}] {\n${fns}\n}`,
+        content: `&[aria-\${arbitrary}]`,
       },
     },
     "in-[]:": {
       arbitrary: {
-        content: `:where(*:\${arbitrary}) & {\n${fns}\n}`,
+        content: `:where(*:\${arbitrary}) &`,
       },
     },
     "has-[]:": {
       arbitrary: {
-        content: `&:has(*:is(\${arbitrary})) {\n${fns}\n}`,
+        content: `&:has(*:is(\${arbitrary}))`,
       },
     },
     "data-[]:": {
       arbitrary: {
-        content: `&[data-\${arbitrary}] {\n${fns}\n}`,
+        content: `&[data-\${arbitrary}]`,
       },
     },
     "nth-[]:": {
       arbitrary: {
-        content: `&:nth-child(\${arbitrary}) {\n${fns}\n}`,
+        content: `&:nth-child(\${arbitrary})`,
       },
     },
     "nth-last-[]:": {
       arbitrary: {
-        content: `&:nth-last-child(\${arbitrary}) {\n${fns}\n}`,
+        content: `&:nth-last-child(\${arbitrary})`,
       },
     },
     "nth-of-type-[]:": {
       arbitrary: {
-        content: `&:nth-of-type(\${arbitrary}) {\n${fns}\n}`,
+        content: `&:nth-of-type(\${arbitrary})`,
       },
     },
     "nth-last-of-type-[]:": {
       arbitrary: {
-        content: `&:nth-last-of-type(\${arbitrary}) {\n${fns}\n}`,
+        content: `&:nth-last-of-type(\${arbitrary})`,
       },
     },
     "supports-[]:": {
       arbitrary: {
-        content: `@supports (\${arbitrary}) {\n${fns}\n}`,
+        content: `@supports (\${arbitrary})`,
       },
     },
     "max-[]:": {
       arbitrary: {
-        content: `@media (width < \${arbitrary}) {\n${fns}\n}`,
+        content: `@media (width < \${arbitrary})`,
       },
     },
     "min-[]:": {
       arbitrary: {
-        content: `@media (width >= \${arbitrary}) {\n${fns}\n}`,
+        content: `@media (width >= \${arbitrary})`,
       },
     },
     // has name
     "@max-[]:": {
       arbitrary: {
-        content: `@container (width < \${arbitrary}) {\n${fns}\n}`,
+        content: `@container (width < \${arbitrary})`,
       },
       arbitraryName: {
-        content: `@container \${name} (width < \${arbitrary}) {\n${fns}\n}`,
+        content: `@container \${name} (width < \${arbitrary})`,
       },
     },
     "@min-[]:": {
       arbitrary: {
-        content: `@container (width >= \${arbitrary}) {\n${fns}\n}`,
+        content: `@container (width >= \${arbitrary})`,
       },
       arbitraryName: {
-        content: `@container \${name} (width >= \${arbitrary}) {\n${fns}\n}`,
+        content: `@container \${name} (width >= \${arbitrary})`,
       },
     },
     "group-[]:": {
       without: {
-        content: `&:is(:where([aria-group]) *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-group]) *)`,
       },
       name: {
-        content: `&:is(:where([aria-group="\${name}"]) *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-group="\${name}"]) *)`,
       },
       arbitrary: {
-        content: `&:is(:where([aria-group]):is(\${arbitrary}) *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-group]):is(\${arbitrary}) *)`,
       },
       arbitraryName: {
-        content: `&:is(:where([aria-group="\${name}"]):is(\${arbitrary}) *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-group="\${name}"]):is(\${arbitrary}) *)`,
       },
     },
     "peer-[]:": {
       without: {
-        content: `&:is(:where([aria-peer]) ~ *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-peer]) ~ *)`,
       },
       name: {
-        content: `&:is(:where([aria-peer="\${name}"]) ~ *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-peer="\${name}"]) ~ *)`,
       },
       arbitrary: {
-        content: `&:is(:where([aria-peer]):is(\${arbitrary}) ~ *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-peer]):is(\${arbitrary}) ~ *)`,
       },
       arbitraryName: {
-        content: `&:is(:where([aria-peer="\${name}"]):is(\${arbitrary}) ~ *) {\n${fns}\n}`,
+        content: `&:is(:where([aria-peer="\${name}"]):is(\${arbitrary}) ~ *)`,
       },
     },
   };
