@@ -6,6 +6,10 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:anuoua/tw-fns.git"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -15,6 +15,10 @@
     "g": "node ./scripts/generate.ts",
     "build": "rimraf dist && tsc -p tsconfig.build.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:anuoua/tw-fns.git"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
     "@types/node": "^25.2.3",
