@@ -1,7 +1,7 @@
 {
   "name": "tw-fns",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "A js/ts tailwindcss library implemented using pure functions",
   "main": "./dist/index.js",
