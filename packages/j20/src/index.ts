@@ -19,9 +19,7 @@ export const createStyles = <T extends Record<string, any>>(
       styleContent += getStyles(`${key}_${id}`, value);
     }
 
-    const sheet = styleSheet(id);
-
-    sheet.replaceSync(styleContent);
+    styleSheet(id, styleContent);
 
     return new Proxy(
       {} as {
