@@ -1,5 +1,5 @@
-import { cache, useInsertionEffect, useRef } from "react";
-import { getStyles, getClasses } from "tw-fns";
+import { useInsertionEffect, useRef } from "react";
+import { getStyles, getClasses } from "tw-fns/builder";
 
 let count = BigInt(0);
 
