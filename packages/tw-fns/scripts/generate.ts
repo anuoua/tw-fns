@@ -81,7 +81,7 @@ export const ${functionName} = (name: string, ...fns: (() => string)[]) => () =>
 export const ${functionName} = (arbitrary: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
   const namedTemplate = (functionName: string, wrapContent: string) =>
     `${getJsdoc(`${wrapContent} {  }`)}
-export const ${functionName} = (arbitrary: string, name: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
+export const ${functionName} = (name: string, arbitrary: string, ...fns: (() => string)[]) => () => \`${getFunctionBody(wrapContent)}\`;\n`;
 
   const map: Record<string, any> = {
     "not-[]:": {
@@ -302,6 +302,19 @@ export const ${name} = (...fns: (() => string)[]) => () => \`${indent(contenRepl
       `./src/wraps/${name}_by.ts`,
       `${getJsdoc(descContent)}
 export const ${name}_by = (name: string, ...fns: (() => string)[]) => () => \`${indent(contenReplaceed2)}\`;\n`,
+      "utf-8",
+    );
+  }
+
+  if (name.startsWith("at_")) {
+    const containerContent = contenReplaceed.replace(
+      "@container ",
+      "@container \${name} ",
+    );
+    writeFileSync(
+      `./src/wraps/${name}_by.ts`,
+      `${getJsdoc(descContent as string)}
+  export const ${name} = (name: string, ...fns: (() => string)[]) => () => \`${indent(containerContent)}\`;\n`,
       "utf-8",
     );
   }
