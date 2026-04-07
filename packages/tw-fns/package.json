@@ -10,18 +10,15 @@
   ],
   "scripts": {
     "g": "node ./scripts/generate.ts",
-    "build": "rimraf dist && tsc -p tsconfig.build.json"
+    "build": "rimraf dist && tsc -p tsconfig.build.json && node ./scripts/flatten.cjs"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:anuoua/tw-fns.git"
   },
   "exports": {
-    "./tools/*": "./dist/tools/*.js",
-    "./utilities/*": "./dist/utilities/*.js",
-    "./utilities-arbitrary/*": "./dist/utilities-arbitrary/*.js",
-    "./wraps/*": "./dist/wraps/*.js",
-    "./wraps-arbitrary/*": "./dist/wraps-arbitrary/*.js"
+    "./*": "./dist/*.js",
+    "./base.css": "./base.css"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",

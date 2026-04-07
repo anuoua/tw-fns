@@ -408,44 +408,44 @@ rmSync("./src/index.ts", {
 });
 
 // generate a index.ts exports all functions
-const wraps = readdirSync("./src/wraps");
-const wrapsArbitrary = readdirSync("./src/wraps-arbitrary");
-const utilities = readdirSync("./src/utilities");
-const utilitiesArbitrary = readdirSync("./src/utilities-arbitrary");
-const tools = readdirSync("./src/tools");
+// const wraps = readdirSync("./src/wraps");
+// const wrapsArbitrary = readdirSync("./src/wraps-arbitrary");
+// const utilities = readdirSync("./src/utilities");
+// const utilitiesArbitrary = readdirSync("./src/utilities-arbitrary");
+// const tools = readdirSync("./src/tools");
 
-const getExportName = (file: string) => file.replace(".ts", "");
+// const getExportName = (file: string) => file.replace(".ts", "");
 
-const wrapsExports = wraps
-  .map(
-    (file) =>
-      `export { ${getExportName(file)} } from "./wraps/${getExportName(file)}";`,
-  )
-  .join("\n");
-const wrapsArbitraryExports = wrapsArbitrary
-  .map(
-    (file) =>
-      `export { ${getExportName(file)} } from "./wraps-arbitrary/${getExportName(file)}";`,
-  )
-  .join("\n");
-const utilitiesExports = utilities
-  .map(
-    (file) =>
-      `export { ${getExportName(file)} } from "./utilities/${getExportName(file)}";`,
-  )
-  .join("\n");
+// const wrapsExports = wraps
+//   .map(
+//     (file) =>
+//       `export { ${getExportName(file)} } from "./wraps/${getExportName(file)}";`,
+//   )
+//   .join("\n");
+// const wrapsArbitraryExports = wrapsArbitrary
+//   .map(
+//     (file) =>
+//       `export { ${getExportName(file)} } from "./wraps-arbitrary/${getExportName(file)}";`,
+//   )
+//   .join("\n");
+// const utilitiesExports = utilities
+//   .map(
+//     (file) =>
+//       `export { ${getExportName(file)} } from "./utilities/${getExportName(file)}";`,
+//   )
+//   .join("\n");
 
-const utilitiesArbitraryExports = utilitiesArbitrary
-  .map(
-    (file) =>
-      `export { ${getExportName(file)} } from "./utilities-arbitrary/${getExportName(file)}";`,
-  )
-  .join("\n");
+// const utilitiesArbitraryExports = utilitiesArbitrary
+//   .map(
+//     (file) =>
+//       `export { ${getExportName(file)} } from "./utilities-arbitrary/${getExportName(file)}";`,
+//   )
+//   .join("\n");
 
-const toolsExports = tools
-  .map((file) => `export * from "./tools/${getExportName(file)}";`)
-  .join("\n");
+// const toolsExports = tools
+//   .map((file) => `export * from "./tools/${getExportName(file)}";`)
+//   .join("\n");
 
-const indexContent = `${wrapsExports}\n${wrapsArbitraryExports}\n${utilitiesExports}\n${utilitiesArbitraryExports}\n${toolsExports}\n`;
+// const indexContent = `${wrapsExports}\n${wrapsArbitraryExports}\n${utilitiesExports}\n${utilitiesArbitraryExports}\n${toolsExports}\n`;
 
-writeFileSync("./src/index.ts", indexContent, "utf-8");
+// writeFileSync("./src/index.ts", indexContent, "utf-8");
