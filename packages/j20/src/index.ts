@@ -1,4 +1,4 @@
-import { getStyles, getClasses } from "tw-fns";
+import { getStyles, getClasses } from "tw-fns/builder";
 import { styleSheet } from "j20";
 
 let count = BigInt(0);
