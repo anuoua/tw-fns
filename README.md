@@ -61,8 +61,8 @@ All api is designed from tailwindcss, about ~20000 api.
   - `has-[:active]:bg-amber-50` is `has(':active', bg_amber_50)`
   - ..
 - named group
-  - `group-hover/some:text-blue-500` is `group_by("some", hover(text_blue_500))`
-  - `peer-hover/some:text-blue-500` is `peer_by("some", hover(text_blue_500))`
+  - `group-hover/some:text-blue-500` is `group_by("some", hover(text_blue_500))` or `group_hover_by("some", text_blue_500)`
+  - `peer-hover/some:text-blue-500` is `peer_by("some", hover(text_blue_500))` or `peer_hover_by("some", text_blue_500)`
   - ..
 
 ### There are some special api
@@ -72,11 +72,11 @@ Use aria-[...] to match combined styles
 - `<div aria-group>`
   - below element use `group(text_2xl, ...)`
 - `<div aria-group="some">`
-  - below element use `group_by("some")(text_2xl, ...)`
+  - below element use `group_by("some", text_2xl, ...)`
 - `<div aria-peer>`
   - sibling element use `peer(text_2xl, ...)`
 - `<div aria-peer="some">`
-  - sibling element use `peer_by("some")(text_2xl, ...)`
+  - sibling element use `peer_by("some", text_2xl, ...)`
 
 Container api
 
