@@ -385,6 +385,18 @@ export const ${functionName} = () => \`${indent(css)}\`;
 `;
 
   writeFileSync(`./src/utilities/${fileName}`, content, "utf-8");
+
+  if (functionName.startsWith("at_container")) {
+    const newCss = `${css}\ncontainer-name: \${name};`;
+    const container_content = `${getJsdoc(newCss)}
+export const ${functionName} = (name: string) => () => \`${indent(newCss)}\`;
+`;
+    writeFileSync(
+      `./src/utilities/${functionName}_by.ts`,
+      container_content,
+      "utf-8",
+    );
+  }
 }
 
 rmSync("./src/utilities-arbitrary", { recursive: true, force: true });
