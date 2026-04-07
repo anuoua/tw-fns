@@ -93,6 +93,9 @@ export const ${functionName} = (name: string, arbitrary: string, ...fns: (() => 
       arbitrary: {
         content: `@container (width >= \${arbitrary})`,
       },
+      arbitraryName: {
+        content: `@container \${name} (width >= \${arbitrary})`,
+      },
     },
     "aria-[]:": {
       arbitrary: {
