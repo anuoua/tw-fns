@@ -301,7 +301,7 @@ export const ${name} = (...fns: (() => string)[]) => () => \`${indent(contenRepl
     writeFileSync(
       `./src/wraps/${name}_by.ts`,
       `${getJsdoc(descContent)}
-export const ${name}_by = (name: string) => (...fns: (() => string)[]) => () => \`${indent(contenReplaceed2)}\`;\n`,
+export const ${name}_by = (name: string, ...fns: (() => string)[]) => () => \`${indent(contenReplaceed2)}\`;\n`,
       "utf-8",
     );
   }
