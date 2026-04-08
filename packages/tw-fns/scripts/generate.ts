@@ -310,14 +310,15 @@ export const ${name}_by = (name: string, ...fns: (() => string)[]) => () => \`${
   }
 
   if (name.startsWith("at_")) {
+    const fnName = `${name}_by`;
     const containerContent = contenReplaceed.replace(
       "@container ",
       "@container \${name} ",
     );
     writeFileSync(
-      `./src/wraps/${name}_by.ts`,
+      `./src/wraps/${fnName}.ts`,
       `${getJsdoc(descContent as string)}
-  export const ${name} = (name: string, ...fns: (() => string)[]) => () => \`${indent(containerContent)}\`;\n`,
+  export const ${fnName} = (name: string, ...fns: (() => string)[]) => () => \`${indent(containerContent)}\`;\n`,
       "utf-8",
     );
   }
@@ -391,14 +392,11 @@ export const ${functionName} = () => \`${indent(css)}\`;
 
   if (functionName.startsWith("at_container")) {
     const newCss = `${css}\ncontainer-name: \${name};`;
+    const fnName = `${functionName}_by`;
     const container_content = `${getJsdoc(newCss)}
-export const ${functionName} = (name: string) => () => \`${indent(newCss)}\`;
+export const ${fnName} = (name: string) => () => \`${indent(newCss)}\`;
 `;
-    writeFileSync(
-      `./src/utilities/${functionName}_by.ts`,
-      container_content,
-      "utf-8",
-    );
+    writeFileSync(`./src/utilities/${fnName}.ts`, container_content, "utf-8");
   }
 }
 
