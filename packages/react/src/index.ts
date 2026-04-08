@@ -52,7 +52,7 @@ export const createStyles = <T extends Record<string, any>>(
           cacheMap.delete(id);
         }
       };
-    }, []);
+    }, [id]);
 
     proxyRef.current = new Proxy(
       {} as {
