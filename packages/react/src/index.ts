@@ -49,6 +49,7 @@ export const createStyles = <T extends Record<string, any>>(
         refCount--;
         if (refCount === 0) {
           cacheMap.get(id)?.remove();
+          cacheMap.delete(id);
         }
       };
     }, []);
