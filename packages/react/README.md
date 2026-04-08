@@ -16,20 +16,20 @@ bun install tw-fns @tw-fns/react
 ```tsx
 // base styles
 import "tw-fns/base.css";
-import { createStyles, useStyles } from "@tw-fns/react";
+import { createStyles } from "@tw-fns/react";
 import { build } from "tw-fns/builder";
 import { flex } from "tw-fns/flex";
 import { flex_col } from "tw-fns/flex_col";
 import { items_center } from "tw-fns/items_center";
 import { justify_center } from "tw-fns/justify_center";
 
-const styles = createStyles({
+const useStyles = createStyles({
   main: build(flex, flex_col, items_center, justify_center),
   content: build(text_2xl),
 });
 
 export default function App() {
-  const cns = useStyles(styles);
+  const cns = useStyles();
 
   return (
     <div className={cns.main}>
@@ -41,8 +41,7 @@ export default function App() {
 
 ## API
 
-- createStyles: create styles
-- useStyles: use styles in react component
+- createStyles: create styles hook
 
 ## License
 
