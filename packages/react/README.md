@@ -17,7 +17,11 @@ bun install tw-fns @tw-fns/react
 // base styles
 import "tw-fns/base.css";
 import { createStyles, useStyles } from "@tw-fns/react";
-import { build, flex, flex_col, items_center, justify_center } from "tw-fns";
+import { build } from "tw-fns/builder";
+import { flex } from "tw-fns/flex";
+import { flex_col } from "tw-fns/flex_col";
+import { items_center } from "tw-fns/items_center";
+import { justify_center } from "tw-fns/justify_center";
 
 const styles = createStyles({
   main: build(flex, flex_col, items_center, justify_center),

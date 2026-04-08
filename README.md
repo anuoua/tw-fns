@@ -20,10 +20,32 @@ bun install tw-fns
 ```ts
 // base styles
 import "tw-fns/base.css";
-import { compose, flex, flex_col, items_center, justify_center } from "tw-fns";
+import { compose, build, getStyles, getClasses } from "tw-fns/builder";
+import { flex } from "tw-fns/flex";
+import { flex_col } from "tw-fns/flex_col";
+import { items_center } from "tw-fns/items_center";
+import { justify_center } from "tw-fns/justify_center";
 
 const css = compose(flex, flex_col, items_center, justify_center);
 console.log(css);
+
+const styleFn = (visible) =>
+  build(flex, flex_col).when(visible, items_center).else(justify_center);
+
+/* getStyles will generate all written styles even if `visible` is false.
+ * it is used to create style sheet
+ */
+const styles = getStyles("prefix_classname", styleFn(true /* or false */));
+
+console.log(styles);
+
+/* getClasses only generate classNames for condition usage,
+ * it generates different classNames when visible changes.
+ * it is used to bind with class attribute.
+ */
+const classNames = getClasses("prefix_classname", styleFn(true /* or false */));
+
+consonle.log(classNames);
 ```
 
 ## API
@@ -82,6 +104,11 @@ Container api
 
 - `<div class={at_container}>`
   - `<div class={at_sm(text_2xl, ...)}>`
+
+named container
+
+- `<div class={at_container_by("some")}>`
+  - `<div class={at_sm_by("some", text_2xl, ...)}>`
 
 ## License
 
