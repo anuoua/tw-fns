@@ -21,7 +21,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
-    "j20": "^0.0.20",
+    "j20": "^0.0.25",
     "rimraf": "^6.1.3",
     "tw-fns": "workspace:*",
     "typescript": "^5.9.3"

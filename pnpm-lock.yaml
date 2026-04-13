@@ -11,8 +11,8 @@ importers:
   packages/j20:
     devDependencies:
       j20:
-        specifier: ^0.0.20
-        version: 0.0.20
+        specifier: ^0.0.25
+        version: 0.0.25
       rimraf:
         specifier: ^6.1.3
         version: 6.1.3
@@ -723,8 +723,8 @@ packages:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
 
-  j20@0.0.20:
-    resolution: {integrity: sha512-p+x9CJsNl7OhT1CWI60w3zEKVPQcOYs56UZJ8pKyEbzckNiPur6N0iI+yobPBDqxDnxz1jC+IC8+13p1PKe/kQ==}
+  j20@0.0.25:
+    resolution: {integrity: sha512-BY2moojPInEiIzQ1lUyt49SkSFIUvhGZ+yDUKZPJTKsJrc032VQtcTN4/f/z+vNJ5q38C2otaswwmxZtBhpBaw==}
 
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
@@ -1572,7 +1572,7 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
 
-  j20@0.0.20:
+  j20@0.0.25:
     dependencies:
       csstype: 3.2.3
 
